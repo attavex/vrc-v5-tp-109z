@@ -1,9 +1,7 @@
 #include "main.h"
 using namespace pros;
 
-
 void opcontrol() {
-
 /*Create label on the screen. Inherit the style of the screen*/
 /*
 lv_obj_t * title = lv_label_create(lv_scr_act(), NULL);

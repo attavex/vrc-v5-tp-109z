@@ -2,7 +2,7 @@ using namespace pros;
 #ifndef MOTOR_H
 #define MOTOR_H
 #include "api.h"
-#define cataLimitPort 'a'
+//#define cataLimitPort 'a'
 //DEFS//
  extern pros::Motor frontRight;
  extern pros::Motor frontLeft;
