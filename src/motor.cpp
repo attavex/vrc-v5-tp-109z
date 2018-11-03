@@ -20,7 +20,7 @@ using namespace pros;
        cata.move(-127);
     }
     cata.move(0);
-     pros::Task(CURRENT_TASK).remove();
+     pros::Task(CURRENT_TASK).remove(); //try to comment out this line to test
  }
 
  void cataLaunch(void* x) 
@@ -39,5 +39,5 @@ using namespace pros;
         }
         cata.move(0);
         */
-        pros::Task(CURRENT_TASK).remove();
+        pros::Task(CURRENT_TASK).remove(); //try to comment out this line to test
 }
