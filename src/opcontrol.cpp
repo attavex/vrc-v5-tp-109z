@@ -3,13 +3,13 @@ using namespace pros;
 
 void opcontrol() {
 /*Create label on the screen. Inherit the style of the screen*/
-/*
+
 lv_obj_t * title = lv_label_create(lv_scr_act(), NULL);
-lv_label_set_text(title, "109-zoomin-zesty-zuper-zebras");
+lv_label_set_text(title, "109-zoomin-zesty-zuper-zylophone-zebras");
 lv_obj_align(title, NULL, LV_ALIGN_IN_TOP_MID, 0, 20);  /*Align to the top*/
- pros::lcd::initialize();
+ //pros::lcd::initialize();
 	while (true) {
-		pros::lcd::print(0, "L-Switch -  %d\n", cataLimit.get_value());
+		//pros::lcd::print(0, "L-Switch -  %d\n", cataLimit.get_value());
 		//DRIVE
 		int speed = master.get_analog(ANALOG_LEFT_Y);
 		int turn = master.get_analog(ANALOG_LEFT_X);
