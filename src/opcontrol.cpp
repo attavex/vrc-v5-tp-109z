@@ -8,7 +8,13 @@ lv_obj_t * title = lv_label_create(lv_scr_act(), NULL);
 lv_label_set_text(title, "109-zoomin-zesty-zuper-zylophone-zebras");
 lv_obj_align(title, NULL, LV_ALIGN_IN_TOP_MID, 0, 20);  /*Align to the top*/
  //pros::lcd::initialize();
+
+ //CATA//
+ pros::Task windCata(cataWind, NULL);
+ pros::Task launchCata(cataLaunch, NULL);
+ 
 	while (true) {
+		//cata.move(-10);
 		//pros::lcd::print(0, "L-Switch -  %d\n", cataLimit.get_value());
 		//DRIVE
 		int speed = master.get_analog(ANALOG_LEFT_Y);
@@ -21,10 +27,24 @@ lv_obj_align(title, NULL, LV_ALIGN_IN_TOP_MID, 0, 20);  /*Align to the top*/
 		//INTAKE
 		int inSpeedNormal = master.get_analog(ANALOG_RIGHT_Y);
 		int inSpeedFast = master.get_analog(ANALOG_RIGHT_X);
-		in = inSpeedNormal + inSpeedFast;
+		in = inSpeedNormal;
+/*
+		if (master.get_digital(E_CONTROLLER_DIGITAL_R1))
+		{
+			cata.move(-127);
+		}
+		else if (master.get_digital(E_CONTROLLER_DIGITAL_R2) && (cataLimit.get_value() != 1))
+		{
+          cata.move(-127);
+		}
+		else
+		{
+			cata.move(-10);
+		}
 
 		//CATA
-		if (master.get_digital(E_CONTROLLER_DIGITAL_R1)) //wind up/go down 
+
+		if (master.get_digital(E_CONTROLLER_DIGITAL_R2)) //wind up/go down 
 	{
 		pros::Task windCata(cataWind, NULL);
         //taskCreate(cataWind, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
@@ -36,10 +56,7 @@ lv_obj_align(title, NULL, LV_ALIGN_IN_TOP_MID, 0, 20);  /*Align to the top*/
 		//taskCreate(cataLaunch, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
 		//task_create(cataLaunch);
 	}
-	else
-	{
-		cata.move(-10);
-	}
+	*/
 		pros::delay(20);
 	}
 }

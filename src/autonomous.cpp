@@ -11,4 +11,17 @@
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+    cata.move(-127);
+    pros::delay(400);
+    cata.move(0);
+    frontRight = -127;
+	backRight = -127;
+	frontLeft = 127;
+	backLeft = 127;
+    pros::delay(1000);
+    frontRight = 0;
+	backRight = 0;
+	frontLeft = 0;
+	backLeft = 0;
+}

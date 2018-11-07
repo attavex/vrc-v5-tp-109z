@@ -15,29 +15,46 @@ using namespace pros;
  //Functions
  void cataWind(void* x)
  {
-    while(cataLimit.get_value() != 1) 
-    {
-       cata.move(-127);
+    bool bToggle = false;
+    while(true) {
+        if(master.get_digital(E_CONTROLLER_DIGITAL_R2)) {
+            bToggle = true;
+        } 
+        if(bToggle)
+        {
+            if(!cataLimit.get_value())
+            {
+                cata.move(-127);
+            }
+            else if(cataLimit.get_value())
+            {
+                bToggle = false;
+            }
+        }
     }
-    cata.move(0);
-     pros::Task(CURRENT_TASK).remove(); //try to comment out this line to test
  }
 
- void cataLaunch(void* x) 
- {
-        while(cataLimit.get_value() != 1) 
-        {
-        cata.move(-127);
+ void cataLaunch(void* x) {
+    
+    bool bToggle = false;
+    bool tActive = false;
+    int timer = -1;
+    while(true) {
+        if(master.get_digital(E_CONTROLLER_DIGITAL_R1)) {
+            bToggle = true;
+        } 
+        if(bToggle && !cataLimit.get_value()) {
+            cata.move(-127);
         }
-        cata.move(-127);
-        pros:delay(300);
-        cata.move(0);
-        /*
-        while(cataLimit.get_value() != 1) 
-        {
-        cata.move(-127);
+        else if(bToggle && cataLimit.get_value() && !tActive) {
+            timer = millis();
+            cata.move(-127);
+            tActive = true;
         }
-        cata.move(0);
-        */
-        pros::Task(CURRENT_TASK).remove(); //try to comment out this line to test
+        else if(bToggle && !cataLimit.get_value() && (millis() - timer) >= 300 && tActive) {
+            bToggle = false;
+            tActive = false;
+            cata.move(0);
+        }
+    }
 }
