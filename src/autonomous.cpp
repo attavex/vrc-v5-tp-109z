@@ -15,6 +15,7 @@ void autonomous() {
     cata.move(-127);
     pros::delay(400);
     cata.move(0);
+    /*
     frontRight = -127;
 	backRight = -127;
 	frontLeft = 127;
@@ -24,4 +25,5 @@ void autonomous() {
 	backRight = 0;
 	frontLeft = 0;
 	backLeft = 0;
+    */
 }

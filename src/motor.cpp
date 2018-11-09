@@ -28,6 +28,7 @@ using namespace pros;
             }
             else if(cataLimit.get_value())
             {
+                cata.move(0);
                 bToggle = false;
             }
         }
