@@ -34,7 +34,24 @@ using namespace pros;
         }
     }
  }
-
+void cataActivity(void* x)
+ {
+    while(true) {
+        if(master.get_digital(E_CONTROLLER_DIGITAL_R1)) {
+            cata.move(-127);
+        }
+        else
+        { 
+            if(!cataLimit.get_value()) {
+            cata.move(-127);
+            } 
+            else {
+                cata.move(0);
+            }
+         
+        }
+    }
+}
  void cataLaunch(void* x) {
     
     bool bToggle = false;

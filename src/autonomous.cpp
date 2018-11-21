@@ -12,18 +12,31 @@
  * from where it left off.
  */
 void autonomous() {
-    cata.move(-127);
-    pros::delay(400);
-    cata.move(0);
-    /*
-    frontRight = -127;
-	backRight = -127;
-	frontLeft = 127;
-	backLeft = 127;
-    pros::delay(1000);
+    while(!cataLimit.get_value())
+    {
+        cata.move(-127);
+    }
+    cata.move(-10);
+    frontRight = 127;
+	backRight = 127;
+	frontLeft = -127;
+	backLeft = -127;
+    in.move(-70);
+    pros::delay(800);
     frontRight = 0;
 	backRight = 0;
 	frontLeft = 0;
 	backLeft = 0;
-    */
+    pros:delay(100);
+     frontRight = 70;
+	backRight = 70;
+	frontLeft = -70;
+	backLeft = -70;
+    pros::delay(100);
+    frontRight = 0;
+	backRight = 0;
+	frontLeft = 0;
+	backLeft = 0;
+    pros::delay(1000);
+    in.move(0);
 }

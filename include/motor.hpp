@@ -14,6 +14,9 @@ using namespace pros;
  //SENSORS
  extern pros::ADIDigitalIn cataLimit;
  //FUNCTIONS
+ /*
  void cataWind(void* x);
  void cataLaunch(void* x);
+ */
+void cataActivity(void* x);
 #endif 
