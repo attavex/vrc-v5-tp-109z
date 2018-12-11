@@ -11,12 +11,13 @@ using namespace pros;
  extern pros::Motor cata;
  extern pros::Motor in;
  extern pros::Controller master;
+ extern int driveGet();
  //SENSORS
  extern pros::ADIDigitalIn cataLimit;
  //FUNCTIONS
- /*
- void cataWind(void* x);
- void cataLaunch(void* x);
- */
 void cataActivity(void* x);
+void driveSpeed(int iSpeed);
+void turnLeft(int iSpeed);
+void turnRight(int iSpeed);
+void encoderReset();
 #endif 
