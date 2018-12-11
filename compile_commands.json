@@ -63,11 +63,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/opcontrol.cpp.o",
-            "src\\opcontrol.cpp"
+            "bin/motor.cpp.o",
+            "src\\motor.cpp"
         ],
         "directory": "C:\\Users\\nikdu\\Documents\\github\\vrc-v5-tp-109z",
-        "file": "src\\opcontrol.cpp"
+        "file": "src\\motor.cpp"
     },
     {
         "arguments": [
@@ -133,10 +133,10 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/motor.cpp.o",
-            "src\\motor.cpp"
+            "bin/opcontrol.cpp.o",
+            "src\\opcontrol.cpp"
         ],
         "directory": "C:\\Users\\nikdu\\Documents\\github\\vrc-v5-tp-109z",
-        "file": "src\\motor.cpp"
+        "file": "src\\opcontrol.cpp"
     }
 ]

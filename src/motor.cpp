@@ -2,20 +2,20 @@
 using namespace pros;
 #define cataLimitPort 'a'
 //DEFS//
- pros::Motor frontRight (17);
- pros::Motor frontLeft (18);
- pros::Motor backRight (11);
- pros::Motor backLeft (15);
- pros::Motor cata (14);
- pros::Motor in(19);
- pros::Controller master(E_CONTROLLER_MASTER);
- pros::ADIDigitalIn cataLimit (cataLimitPort);
- 
-int driveGet() 
+pros::Motor frontRight(17);
+pros::Motor frontLeft(18);
+pros::Motor backRight(11);
+pros::Motor backLeft(15);
+pros::Motor cata(14);
+pros::Motor in(19);
+pros::Controller master(E_CONTROLLER_MASTER);
+pros::ADIDigitalIn cataLimit(cataLimitPort);
+
+int driveGet()
 {
-    return(abs((frontRight.get_position() + frontLeft.get_position() + backRight.get_position() + backLeft.get_position())/4));
+    return (abs((frontRight.get_position() + frontLeft.get_position() + backRight.get_position() + backLeft.get_position()) / 4));
 }
- //FUNCTIONS//
+//FUNCTIONS//
 
 void driveSpeed(int iSpeed)
 {
@@ -48,25 +48,23 @@ void encoderReset()
     backRight.set_zero_position(0);
     backLeft.set_zero_position(0);
 }
-void cataActivity(void* x)
- {
-    while(true) {
-        if(master.get_digital(E_CONTROLLER_DIGITAL_R1)) {
-            cata.move(-127);
-        }
-        else if(master.get_digital(E_CONTROLLER_DIGITAL_R2))
-        {
-            cata.move(127);
-        }
+
+void cataActivity(void *x)
+{
+    while(true)
+    {
+        if (master.get_digital(E_CONTROLLER_DIGITAL_R1)) cata.move(-127);
+        else if (master.get_digital(E_CONTROLLER_DIGITAL_R2)) cata.move(127);
         else
-        { 
-            if(!cataLimit.get_value()) {
-            cata.move(-127);
-            } 
-            else {
+        {
+            if (!cataLimit.get_value())
+            {
+                cata.move(-127);
+            }
+            else
+            {
                 cata.move(-10);
             }
-         
         }
     }
 }
