@@ -1,22 +1,31 @@
 #include "main.h"
-using namespace pros;
 #define cataLimitPort 'a'
+
 //DEFS//
-pros::Motor frontRight(17);
-pros::Motor frontLeft(18);
-pros::Motor backRight(11);
-pros::Motor backLeft(15);
-pros::Motor cata(14);
-pros::Motor in(19);
-pros::Controller master(E_CONTROLLER_MASTER);
+pros::Motor frontRight(17, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor frontLeft(18, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor backRight(11, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor backLeft(15, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor cata(14, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor in(19, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Controller master(pros::E_CONTROLLER_MASTER);
 pros::ADIDigitalIn cataLimit(cataLimitPort);
 
+//DEFINE CHASSIS//
+ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
+  {-18, -15}, // Left motors
+  {17, 11},   // Right motors
+  AbstractMotor::gearset::red, // Torque gearset
+  {4_in, 10.5_in} // 4 inch wheels, 12.5 inch wheelbase width
+);
+
+//ENCODER DRIVEGET//
 int driveGet()
 {
     return (abs((frontRight.get_position() + frontLeft.get_position() + backRight.get_position() + backLeft.get_position()) / 4));
 }
-//FUNCTIONS//
 
+//FUNCTIONS//
 void driveSpeed(int iSpeed)
 {
     frontRight.move(-iSpeed);
@@ -53,8 +62,8 @@ void cataActivity(void *x)
 {
     while(true)
     {
-        if (master.get_digital(E_CONTROLLER_DIGITAL_R1)) cata.move(-127);
-        else if (master.get_digital(E_CONTROLLER_DIGITAL_R2)) cata.move(127);
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) cata.move(-127);
+        else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) cata.move(127);
         else
         {
             if (!cataLimit.get_value())
@@ -68,52 +77,3 @@ void cataActivity(void *x)
         }
     }
 }
-
-/*
- void cataLaunch(void* x) {
-    
-    bool bToggle = false;
-    bool tActive = false;
-    int timer = -1;
-    while(true) {
-        if(master.get_digital(E_CONTROLLER_DIGITAL_R1)) {
-            bToggle = true;
-        } 
-        if(bToggle && !cataLimit.get_value()) {
-            cata.move(-127);
-        }
-        else if(bToggle && cataLimit.get_value() && !tActive) {
-            timer = millis();
-            cata.move(-127);
-            tActive = true;
-        }
-        else if(bToggle && !cataLimit.get_value() && (millis() - timer) >= 300 && tActive) {
-            bToggle = false;
-            tActive = false;
-            cata.move(0);
-        }
-    }
-}
-
- void cataWind(void* x)
- {
-    bool bToggle = false;
-    while(true) {
-        if(master.get_digital(E_CONTROLLER_DIGITAL_R2)) {
-            bToggle = true;
-        } 
-        if(bToggle)
-        {
-            if(!cataLimit.get_value())
-            {
-                cata.move(-127);
-            }
-            else if(cataLimit.get_value())
-            {
-                cata.move(0);
-                bToggle = false;
-            }
-        }
-}
- }
-*/

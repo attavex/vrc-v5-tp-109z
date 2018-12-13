@@ -1,7 +1,6 @@
-using namespace pros;
 #ifndef MOTOR_H
 #define MOTOR_H
-#include "api.h"
+#include "main.h"
 //DEFS//
 extern pros::Motor frontRight;
 extern pros::Motor frontLeft;
@@ -11,6 +10,8 @@ extern pros::Motor cata;
 extern pros::Motor in;
 extern pros::Controller master;
 extern int driveGet();
+//DEFINE CHASSIS//
+extern ChassisControllerIntegrated robotChassis;
 //SENSORS//
 extern pros::ADIDigitalIn cataLimit;
 //FUNCTIONS//
