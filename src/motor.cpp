@@ -2,21 +2,24 @@
 #define cataLimitPort 'a'
 
 //DEFS//
-pros::Motor frontRight(17, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_DEGREES);
+/*
+pros::Motor frontRight(17, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor frontLeft(18, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor backRight(11, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor backRight(11, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor backLeft(15, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+*/
 pros::Motor cata(14, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor in(19, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 pros::ADIDigitalIn cataLimit(cataLimitPort);
 
+MotorGroup left = MotorGroup({18, 15});
+MotorGroup right = MotorGroup({-17, -11});
 //DEFINE CHASSIS//
 ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
-  {-18, -15}, // Left motors
-  {17, 11},   // Right motors
-  AbstractMotor::gearset::red, // Torque gearset
-  {4_in, 10.5_in} // 4 inch wheels, 12.5 inch wheelbase width
+  left, right,
+  AbstractMotor::gearset::green, // Speed gearset
+  {4_in, 10.5_in} // 4 inch wheels, 10.5 inch wheelbase width
 );
 
 //ENCODER DRIVEGET//
