@@ -2,15 +2,17 @@
 
 void opcontrol()
 {
+	
+	pros::delay(50);
 	//CATA//
 	pros::Task activityCata(cataActivity, NULL);
+	master.clear();
 	master.set_text(1, 8, "109Z");
 	while (true)
 	{
 		//DRIVE
-		robotChassis.arcade(master.get_analog(ANALOG_LEFT_Y), master.get_analog(ANALOG_LEFT_X));
-		//robotChassis.tank(master.get_analog(ANALOG_LEFT_Y), master.get_analog(ANALOG_RIGHT_Y));
-/*
+		robotChassis.arcade(controller.getAnalog(ControllerAnalog::leftY), controller.getAnalog(ControllerAnalog::leftX));
+
 		//INTAKE
 		int inSpeedNormal = master.get_analog(ANALOG_RIGHT_Y);
 		int inSpeedFast = master.get_analog(ANALOG_RIGHT_X);
@@ -23,7 +25,7 @@ void opcontrol()
 		{
 			in.move(127);
 		}
-*/
+
 		pros::delay(20);
 	}
 }
