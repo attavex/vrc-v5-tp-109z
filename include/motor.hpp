@@ -10,7 +10,7 @@ extern pros::Motor cata;
 extern pros::Motor in;
 extern pros::Controller master;
 extern int driveGet();
-//DEFINE CHASSIS//
+//DEFINE CHASSIS/MOTIONPROFILE//
 extern ChassisControllerIntegrated robotChassis;
 //SENSORS//
 extern pros::ADIDigitalIn cataLimit;

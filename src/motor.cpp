@@ -18,7 +18,6 @@ ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
   AbstractMotor::gearset::red, // Torque gearset
   {4_in, 10.5_in} // 4 inch wheels, 12.5 inch wheelbase width
 );
-
 //ENCODER DRIVEGET//
 int driveGet()
 {
