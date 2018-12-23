@@ -3,13 +3,16 @@
 void opcontrol()
 {
 	
-	pros::delay(50);
 	//CATA//
 	pros::Task activityCata(cataActivity, NULL);
+
+	//CONTROLLER TEXT//
 	master.clear();
 	master.set_text(1, 8, "109Z");
+
 	while (true)
 	{
+		
 		//DRIVE
 		robotChassis.arcade(controller.getAnalog(ControllerAnalog::leftY), controller.getAnalog(ControllerAnalog::leftX));
 

@@ -3,7 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceRoot}**", 
+                "${workspaceRoot}**",
                 "vrc-v5-tp-109z/include/api.h",
                 "vrc-v5-tp-109z/include/okapi/api.hpp",
                 "vrc-v5-tp-109z/include/main.h"
@@ -13,7 +13,8 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "intelliSenseMode": "msvc-x64"
+            "intelliSenseMode": "msvc-x64",
+            "compileCommands": "${workspaceFolder}/compile_commands.json"
         }
     ],
     "version": 4

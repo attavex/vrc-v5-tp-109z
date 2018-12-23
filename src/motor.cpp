@@ -1,16 +1,22 @@
 #include "main.h"
 #define cataLimitPort 'a'
 
-
 //DEFS//
+
 //Motors
 pros::Motor cata(14, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor in(19, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+
+
 //Controller (Defined two times for okapi uses)
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 Controller controller;
+
+
 //Sensors
 pros::ADIDigitalIn cataLimit(cataLimitPort);
+
+
 //Drive Motors
 MotorGroup left = MotorGroup({18, 15});
 MotorGroup right = MotorGroup({-17, -11});

@@ -1,3 +1,0 @@
-arm-none-eabi-g++.exe: error: bin/autonomous.cpp.o: No such file or directory
-arm-none-eabi-g++.exe: error: bin/initialize.cpp.o: No such file or directory
-arm-none-eabi-g++.exe: error: bin/lcdauton.cpp.o: No such file or directory

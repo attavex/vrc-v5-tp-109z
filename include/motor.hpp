@@ -13,13 +13,11 @@ extern pros::Motor in;
 extern pros::Controller master;
 extern Controller controller;
 
+//GLOBAL VARIABLES
 extern int driveGet();
+
 //DEFINE CHASSIS/MOTIONPROFILE//
-
-
-//DEFINE CHASSIS//
 extern ChassisControllerIntegrated robotChassis;
-
 
 //SENSORS//
 extern pros::ADIDigitalIn cataLimit;
