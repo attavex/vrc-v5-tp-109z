@@ -1,6 +1,6 @@
 #include "main.h"
 #include "motor.hpp"
-
+/*
 //Profile Controller Def//
 auto profileController = AsyncControllerFactory::motionProfile(
   1.0,  // Maximum linear velocity of the Chassis in m/s
@@ -8,11 +8,12 @@ auto profileController = AsyncControllerFactory::motionProfile(
   10.0, // Maximum linear jerk of the Chassis in m/s/s/s
   robotChassis // Chassis Controller
 );
-
+*/
 void autonomous() 
 { 
    //TEST FOR OKAPI//
-   robotChassis.moveDistance(100);
+   robotChassis.moveDistance(1_ft);
    pros::delay(500);
-   robotChassis.turnAngle(90);
+   //robotChassis.turnAngle(90);
+   
 }

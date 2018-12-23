@@ -26,7 +26,7 @@ MotorGroup right = MotorGroup({-17, -11});
 ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
   left, right,
   AbstractMotor::gearset::green, // Speed gearset
-  {4_in, 10.5_in} // 4 inch wheels, 10.5 inch wheelbase width
+  {4_in, 5_in} // 4 inch wheels, 10.5 inch wheelbase width
 );
 
 
