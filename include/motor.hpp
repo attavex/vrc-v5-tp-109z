@@ -2,6 +2,8 @@
 #define MOTOR_H
 #include "main.h"
 //DEFS//
+//Vis Sensor
+extern pros::Vision visSensor;
 //Motors
 extern pros::Motor frontRight;
 extern pros::Motor frontLeft;

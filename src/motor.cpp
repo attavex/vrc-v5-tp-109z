@@ -2,6 +2,9 @@
 #define cataLimitPort 'a'
 
 //DEFS//
+//Vis Sensor
+pros::Vision visSensor(5);
+
 
 //Motors
 pros::Motor cata(14, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
@@ -20,7 +23,6 @@ pros::ADIDigitalIn cataLimit(cataLimitPort);
 //Drive Motors
 MotorGroup left = MotorGroup({18, 15});
 MotorGroup right = MotorGroup({-17, -11});
-
 
 //DEFINE CHASSIS//
 ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
