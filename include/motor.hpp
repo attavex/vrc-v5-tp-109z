@@ -1,14 +1,22 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 #include "main.h"
+
+extern int autonSelect[3];
+
 //DEFS//
 //Vis Sensor
 extern pros::Vision visSensor;
 //Motors
+/*
 extern pros::Motor frontRight;
 extern pros::Motor frontLeft;
 extern pros::Motor backRight;
 extern pros::Motor backLeft;
+*/
+extern MotorGroup left;
+extern MotorGroup right;
+
 extern pros::Motor cata;
 extern pros::Motor in;
 //Controllers

@@ -1,6 +1,6 @@
 #include "main.h"
 #define cataLimitPort 'a'
-
+int autonSelect[3];
 //DEFS//
 //Vis Sensor
 pros::Vision visSensor(5);
@@ -28,8 +28,9 @@ MotorGroup right = MotorGroup({-17, -11});
 ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
   left, right,
   AbstractMotor::gearset::green, // Speed gearset
-  {4_in, 50_in} // 4 inch wheels
+  {4_in, 12_in} // 4 inch wheels
 );
+
 
 AsyncMotionProfileController profileController = AsyncControllerFactory::motionProfile(
   1.0,  // Maximum linear velocity of the Chassis in m/s
@@ -38,7 +39,7 @@ AsyncMotionProfileController profileController = AsyncControllerFactory::motionP
   robotChassis // Chassis Controller
 );
 
-
+/*
 //ENCODER DRIVEGET//
 int driveGet()
 {
@@ -47,6 +48,7 @@ int driveGet()
 
 
 //FUNCTIONS//
+/*
 void driveSpeed(int iSpeed)
 {
     frontRight.move(-iSpeed);
@@ -70,7 +72,7 @@ void turnRight(int iSpeed)
     backRight.move(iSpeed);
     backLeft.move(iSpeed);
 }
-
+/*
 void encoderReset()
 {
     frontRight.set_zero_position(0);
@@ -78,7 +80,7 @@ void encoderReset()
     backRight.set_zero_position(0);
     backLeft.set_zero_position(0);
 }
-
+*/
 void cataActivity(void *x)
 {
     while(true)

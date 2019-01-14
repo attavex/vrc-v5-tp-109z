@@ -7,6 +7,7 @@
  */
 void initialize() {
     visSensor.set_auto_white_balance(true);
+    pros::lcd::initialize();
 }
 
 /**
