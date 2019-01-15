@@ -1,15 +1,12 @@
 #include "main.h"
 
-
 void opcontrol()
 {
 	
 	//CATA//
 	pros::Task activityCata(cataActivity, NULL);
 
-	//CONTROLLER TEXT//
-	master.clear();
-	master.set_text(1, 8, "109Z");
+lcdAuton();
 
 	while (true)
 	{
