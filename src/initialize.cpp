@@ -1,5 +1,5 @@
 #include "main.h"
-
+#define NUM_SCRIPTS 5										// Number of autonomous scripts
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *

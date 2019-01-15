@@ -1,7 +1,7 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 #include "main.h"
-#define NUM_SCRIPTS 5										// Number of autonomous scripts
+
 
 // function stubs
 void on_left_button();
