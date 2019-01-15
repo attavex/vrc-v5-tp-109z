@@ -5,9 +5,8 @@ void opcontrol()
 	
 	//CATA//
 	pros::Task activityCata(cataActivity, NULL);
-
-lcdAuton();
-
+	pros::lcd::clear();
+    pros::lcd::print(1, "test");
 	while (true)
 	{
 		
