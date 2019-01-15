@@ -1,8 +1,8 @@
 #include "main.h"
 
-void autonomous() 
-{ 
-   in.move(127);
+void redAuton()
+{
+ in.move(127);
    while(!cataLimit.get_value())
    {
      cata.move(-127);
@@ -16,6 +16,47 @@ void autonomous()
   left.moveRelative(975, 200);
   right.moveRelative(975, 200);
   pros::delay(700);
+}
+
+void blueAuton()
+{
+
+}
+
+void redBackAuton()
+{
+
+}
+
+void blueBackAuton()
+{
+
+}
+
+void progSkills()
+{
+
+}
+
+
+
+
+
+
+void autonomous() 
+{ 
+  
+redAuton();
+
+
+
+
+
+
+
+
+
+
 
 
 /**
@@ -24,7 +65,7 @@ void autonomous()
  * autonSelect = 3 is Red side back
  * autonSelect = 4 is Blue side back
  * autonSelect = 5 is Prog Skills
- **/
+ 
 
    if (autonSelect == 1)
    {
@@ -46,5 +87,5 @@ void autonomous()
    {
       //PROGRAMMING SKILLS
    }
-   
+   */
 }

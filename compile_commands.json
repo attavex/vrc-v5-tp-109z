@@ -29,7 +29,8 @@
             "--std=gnu++17",
             "-o",
             "bin/opcontrol.cpp.o",
-            "src\\opcontrol.cpp"
+            "src\\opcontrol.cpp",
+            "include/main.h"
         ],
         "directory": "C:\\Users\\nikdu\\Documents\\github\\vrc-v5-tp-109z",
         "file": "src\\opcontrol.cpp"

@@ -6,7 +6,9 @@ void opcontrol()
 	//CATA//
 	pros::Task activityCata(cataActivity, NULL);
 	pros::lcd::clear();
-    pros::lcd::print(1, "test");
+	
+    pros::lcd::set_text(1, "test");
+	
 	while (true)
 	{
 		
