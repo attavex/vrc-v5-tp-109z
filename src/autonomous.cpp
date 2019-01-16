@@ -25,15 +25,32 @@ void redAuton()
   left.moveRelative(276, 200);
   right.moveRelative(-276, 200);
   pros::delay(600);
+  left.moveRelative(200, 200);
+  right.moveRelative(200, 200);
+  pros::delay(700);
   cata.move(-127);
   pros::delay(300);
   cata.move(0);
   pros::delay(200);
+  in.move(0);
+  left.moveRelative(-100, 200);
+  right.moveRelative(100, 200);
+  pros::delay(600);
   left.moveVoltage(9000);
-  right.moveVoltage(9000);
+  right.moveVoltage(8500);
   pros::delay(2000);
   left.moveVoltage(0);
   right.moveVoltage(0);
+  in.move(-90);
+  pros::delay(300);
+  left.moveRelative(-800, 200);
+  right.moveRelative(-800, 200);
+  pros::delay(1000);
+  left.moveRelative(-276, 200);
+  right.moveRelative(276, 200);
+  pros::delay(600);
+  left.moveRelative(-700, 200);
+  right.moveRelative(-700, 200);
 
 }
 
