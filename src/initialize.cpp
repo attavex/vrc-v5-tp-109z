@@ -1,18 +1,93 @@
 #include "main.h"
-/**
- * Runs initialization code. This occurs as soon as the program is started.
- *
- * All other competition modes are blocked by initialize; it is recommended
- * to keep execution time for this mode under a few seconds.
- */
+
+lv_theme_t * theme = lv_theme_alien_init(210, NULL);
+
+int autonNumber;
+static std::string autons[] = {"Skills","Red Front","Red Back","Blue Front","Blue Back"};
+
+static lv_obj_t * background;
+lv_obj_t * label;
+
+static lv_res_t btn_rel_action(lv_obj_t * btn)
+{
+  int x = lv_obj_get_free_num(btn);
+    autonNumber = x;
+    /*
+    std::string text = ("Autons " + autons[(int)autonNumber]);
+    const char* c = text.c_str();
+    lv_label_set_text(lab, c);
+    lv_obj_set_x(lab, 50);
+*/
+    return LV_RES_OK;
+}
+
+void selectAuton()
+{
+  //Sets Theme to Alien and Sets Background
+  //lv_set_theme_current(theme);
+  background = lv_page_create(NULL, NULL);
+  lv_scr_load(background);
+
+  //Displays Current Selection of Auton
+  lv_obj_t * selectionDisplay = lv_label_create(background, NULL);
+  std::string selectionText = ("Auton - " + autons[(int)autonNumber]);
+  const char* selection = selectionText.c_str();
+  lv_label_set_text(selectionDisplay, selection);
+  lv_obj_set_x(selectionDisplay, 10);
+
+  //Create Button to Select Red Front Auton
+  lv_obj_t * redFrontButton = lv_btn_create(background, NULL);
+  label = lv_label_create(redFrontButton, NULL);
+  lv_label_set_text(label, "Red Front");
+  lv_obj_align(redFrontButton, label, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 0);
+  lv_obj_set_height(redFrontButton, 50);
+
+  //Create Button to Select Red Back Auton
+  lv_obj_t * redBackButton = lv_btn_create(lv_scr_act(), redFrontButton);
+  label = lv_label_create(redBackButton, NULL);
+  lv_label_set_text(label, "Red Back");
+  lv_obj_align(redBackButton, redFrontButton, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
+
+  //Create Button to Select Blue Front Auton
+  lv_obj_t * blueFrontButton = lv_btn_create(lv_scr_act(), redFrontButton);
+  label = lv_label_create(blueFrontButton, NULL);
+  lv_label_set_text(label, "Blue Front");
+  lv_obj_align(blueFrontButton, redFrontButton, LV_ALIGN_OUT_RIGHT_MID, 50, 0);
+
+  //Create Button to Select Blue Back Auton
+  lv_obj_t * blueBackButton = lv_btn_create(lv_scr_act(), redBackButton);
+  label = lv_label_create(blueBackButton, NULL);
+  lv_label_set_text(label, "Blue Back");
+  lv_obj_align(blueBackButton, redBackButton, LV_ALIGN_OUT_RIGHT_MID, 50, 0);
+
+  //Create Button to Select Programming Skills 
+  lv_obj_t * skillsButton = lv_btn_create(lv_scr_act(), NULL);
+  label = lv_label_create(skillsButton,NULL);
+  lv_label_set_text(label, "Skills");
+  lv_obj_align(skillsButton, blueFrontButton, LV_ALIGN_OUT_RIGHT_MID, 50, 40);
+  lv_obj_set_height(skillsButton, 50);
+  lv_obj_set_width(skillsButton, 50);
+
+  //Sets to run action when clicked
+  lv_btn_set_action(redFrontButton, LV_BTN_ACTION_CLICK, btn_rel_action);
+  lv_btn_set_action(redBackButton, LV_BTN_ACTION_CLICK, btn_rel_action);
+  lv_btn_set_action(blueFrontButton, LV_BTN_ACTION_CLICK, btn_rel_action);
+  lv_btn_set_action(blueBackButton, LV_BTN_ACTION_CLICK, btn_rel_action);
+  lv_btn_set_action(skillsButton, LV_BTN_ACTION_CLICK, btn_rel_action);
+
+   //Sets numbers for auton
+   lv_obj_set_free_num(redFrontButton, 1);
+   lv_obj_set_free_num(redBackButton, 2);
+   lv_obj_set_free_num(blueFrontButton, 3);
+   lv_obj_set_free_num(blueBackButton, 4);
+   lv_obj_set_free_num(skillsButton, 0);
+}
+
+
 
 void initialize() {
-    pros::lcd::initialize();
     //VISION
     //visSensor.set_auto_white_balance(true);
-    //LCD
-    //LCD SELECT
-    //std::cout << pros::lcd::initialize() << std::endl;
 }
 
 /**
@@ -32,5 +107,5 @@ void disabled() {}
  * starts.
  **/
 void competition_initialize() {
-
+ selectAuton();
 }

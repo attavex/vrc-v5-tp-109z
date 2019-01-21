@@ -38,9 +38,7 @@
 #include "okapi/api.hpp"
 using namespace okapi;
 #include "motor.hpp"
-/**
- * You should add more #includes here
-*/
+#include "display/lvgl.h"
 //#include "pros/api_legacy.h"
 
 /**

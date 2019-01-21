@@ -1,6 +1,5 @@
 #include "main.h"
 #define cataLimitPort 'a'
-int autonSelect = 0;
 //DEFS//
 //Vis Sensor
 pros::Vision visSensor(5);

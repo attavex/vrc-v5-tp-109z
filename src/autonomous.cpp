@@ -227,47 +227,32 @@ void progSkills()
 
 void autonomous() 
 { 
-  
-blueAuton();
-
-
-
-
-
-
-
-
-
-
-
-
 /**
- * autonSelect = 1 is Red side
- * autonSelect = 2 is Blue side
- * autonSelect = 3 is Red side back
- * autonSelect = 4 is Blue side back
- * autonSelect = 5 is Prog Skills
- 
+ * autonNumber = 0 is Prog skills
+ * autonNumber = 1 is Red side front
+ * autonNumber = 2 is Red side back
+ * autonNumber = 3 is Blue side front
+ * autonNumber = 4 is Blue side back
+ **/
 
-   if (autonSelect == 1)
+   if (autonNumber == 0) //PROGRAMMING SKILLS
    {
-      //RED SIDE AUTON
+      progSkills();
    }
-   else if (autonSelect == 2)
+   else if (autonNumber == 1) //RED FRONT AUTON
    {
-      //BLUE SIDE AUTON
+      redAuton();
    }
-   else if (autonSelect == 3)
+   else if (autonNumber == 2) //RED BACK AUTON
    {
-      //RED SIDE BACK AUTON
+      redBackAuton();
    }
-   else if (autonSelect == 4)
+   else if (autonNumber == 3) //BLUE FRONT AUTON
    {
-      //BLUE SIDE BACK AUTON
+      blueAuton();
    }
-   else if (autonSelect == 5)
+   else if (autonNumber == 4) //BLUE BACK AUTON
    {
-      //PROGRAMMING SKILLS
+      blueBackAuton();
    }
-   */
 }

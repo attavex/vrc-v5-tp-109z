@@ -3,8 +3,6 @@
 #include "main.h"
 
 
-extern int autonSelect;
-extern int lcdAutonPage;
 //DEFS//
 //Vis Sensor
 extern pros::Vision visSensor;
@@ -26,6 +24,7 @@ extern Controller controller;
 
 //GLOBAL VARIABLES
 extern int driveGet();
+extern int autonNumber;
 
 //DEFINE CHASSIS/MOTIONPROFILE//
 extern ChassisControllerIntegrated robotChassis;
