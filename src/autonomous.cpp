@@ -7,56 +7,202 @@ void redAuton()
      cata.move(-127);
    }
    cata.move(-10);
-    in.move(127);
+   in.move(127);
    left.tarePosition();
    right.tarePosition();
   left.moveAbsolute(-1200, 200);
   right.moveAbsolute(-1200, 200);
   pros::delay(1600);
-  left.moveVoltage(9000);
-  right.moveVoltage(9000);
-  pros::delay(2000);
+  in.move(115);
+  left.moveRelative(1200, 200);
+  right.moveRelative(1200, 200);
+  pros::delay(1200);
+  left.moveVoltage(7000);
+  right.moveVoltage(7000);
+  pros::delay(400);
   left.moveVoltage(0);
   right.moveVoltage(0);
-  pros::delay(300);
-  left.moveRelative(-300, 200);
-  right.moveRelative(-300, 200);
-  pros::delay(1000);
-  left.moveRelative(276, 200);
-  right.moveRelative(-276, 200);
+  left.moveRelative(-250, 200);
+  right.moveRelative(-250, 200);
   pros::delay(600);
-  left.moveRelative(200, 200);
-  right.moveRelative(200, 200);
+  in.move(60);
+  left.moveRelative(290, 200);
+  right.moveRelative(-290, 200);
+  pros::delay(800);
+ left.moveRelative(225, 200);
+  right.moveRelative(225, 200);
+  pros::delay(850);//longer than needed for balls to settle
+  /*
+  left.moveRelative(150, 200);
+  right.moveRelative(150, 200);
   pros::delay(700);
+  */
+ in.move(0);
+ pros::delay(500);
   cata.move(-127);
   pros::delay(300);
   cata.move(0);
+  
   pros::delay(200);
   in.move(0);
-  left.moveRelative(-100, 200);
-  right.moveRelative(100, 200);
-  pros::delay(600);
-  left.moveVoltage(9000);
-  right.moveVoltage(8500);
-  pros::delay(2000);
+  left.moveRelative(-75, 200);
+  right.moveRelative(75, 200);
+  pros::delay(420);
+  left.moveRelative(333, 200);
+  right.moveRelative(333, 200);
+  pros::delay(550);
+  left.moveRelative(95, 200);
+  right.moveRelative(-95, 200);
+  pros::delay(420);
+  left.moveRelative(900, 200);
+  right.moveRelative(900, 200);
+  pros::delay(850);
+  /*
+  left.moveVoltage(10000);
+  right.moveVoltage(10000);
+  pros::delay(1500);
+  
   left.moveVoltage(0);
   right.moveVoltage(0);
-  in.move(-90);
-  pros::delay(300);
-  left.moveRelative(-800, 200);
-  right.moveRelative(-800, 200);
+  */
+  in.move(-70);
+  left.moveRelative(-615, 200);
+  right.moveRelative(-615, 200);
   pros::delay(1000);
-  left.moveRelative(-276, 200);
-  right.moveRelative(276, 200);
-  pros::delay(600);
-  left.moveRelative(-700, 200);
-  right.moveRelative(-700, 200);
+  left.moveRelative(-270, 200);
+  right.moveRelative(270, 200);
+  pros::delay(550);
+  left.moveVoltage(7000);
+  right.moveVoltage(7000);
+  pros::delay(400);
+  left.moveVoltage(0);
+  right.moveVoltage(0);
+  pros::delay(100);
+  left.moveRelative(-500, 200); ///travel 1380 in total
+  right.moveRelative(-500, 200);
+  pros::delay(400);
+  left.moveRelative(-800, 150); ///travel 1380 in total
+  right.moveRelative(-800, 150);
+  pros::delay(1000);
+  /*
+  pros::delay(400);
+  left.moveRelative(-380, 150); 
+  right.moveRelative(-380, 150);
+  pros::delay(400);
+  */
+  left.moveRelative(300, 200);
+  right.moveRelative(300, 200);
+  pros::delay(700);
 
+  left.moveRelative(380, 200);
+  right.moveRelative(-380, 200);
+  pros::delay(500);
+  left.moveVoltage(10000);
+  right.moveVoltage(10000);
+  pros::delay(1000);
+  left.moveVoltage(0);
+  right.moveVoltage(0);
 }
 
 void blueAuton()
 {
+ while(!cataLimit.get_value())
+   {
+     cata.move(-127);
+   }
+   cata.move(-10);
+   in.move(127);
+   left.tarePosition();
+   right.tarePosition();
+  left.moveAbsolute(-1300, 200);
+  right.moveAbsolute(-1300, 200);
+  pros::delay(1600);
+  in.move(115);
+  left.moveRelative(1200, 200);
+  right.moveRelative(1200, 200);
+  pros::delay(1200);
+  left.moveVoltage(7000);
+  right.moveVoltage(7000);
+  pros::delay(400);
+  left.moveVoltage(0);
+  right.moveVoltage(0);
+  left.moveRelative(-250, 200);
+  right.moveRelative(-250, 200);
+  pros::delay(600);
+  left.moveRelative(-276, 200);
+  right.moveRelative(276, 200);
+  pros::delay(800);
+  left.moveRelative(225, 200);
+  right.moveRelative(225, 200);
+  pros::delay(850);//longer than needed for balls to settle
+  /*
+  left.moveRelative(150, 200);
+  right.moveRelative(150, 200);
+  pros::delay(700);
+  */
+  cata.move(-127);
+  pros::delay(300);
+  cata.move(0);
+  
+  pros::delay(200);
+  in.move(0);
+  left.moveRelative(75, 200);
+  right.moveRelative(-75, 200);
+  pros::delay(420);
+  left.moveRelative(333, 200);
+  right.moveRelative(333, 200);
+  pros::delay(550);
+  left.moveRelative(-75, 200);
+  right.moveRelative(75, 200);
+  pros::delay(420);
+  left.moveRelative(925, 200);
+  right.moveRelative(925, 200);
+  pros::delay(850);
+  /*
+  left.moveVoltage(10000);
+  right.moveVoltage(10000);
+  pros::delay(1500);
+  
+  left.moveVoltage(0);
+  right.moveVoltage(0);
+  */
+  in.move(-100);
+  left.moveRelative(-615, 200);
+  right.moveRelative(-615, 200);
+  pros::delay(1000);
+  left.moveRelative(270, 200);
+  right.moveRelative(-270, 200);
+  pros::delay(550);
+  left.moveVoltage(7000);
+  right.moveVoltage(7000);
+  pros::delay(400);
+  left.moveVoltage(0);
+  right.moveVoltage(0);
+  pros::delay(100);
+  left.moveRelative(-500, 200); ///travel 1380 in total
+  right.moveRelative(-500, 200);
+  pros::delay(400);
+  left.moveRelative(-800, 150); ///travel 1380 in total
+  right.moveRelative(-800, 150);
+  pros::delay(1000);
+  /*
+  pros::delay(400);
+  left.moveRelative(-380, 150); 
+  right.moveRelative(-380, 150);
+  pros::delay(400);
+  */
+  left.moveRelative(300, 200);
+  right.moveRelative(300, 200);
+  pros::delay(700);
 
+  left.moveRelative(-380, 200);
+  right.moveRelative(380, 200);
+  pros::delay(500);
+  left.moveVoltage(10000);
+  right.moveVoltage(10000);
+  pros::delay(1000);
+  left.moveVoltage(0);
+  right.moveVoltage(0);
 }
 
 void redBackAuton()
@@ -82,7 +228,7 @@ void progSkills()
 void autonomous() 
 { 
   
-redAuton();
+blueAuton();
 
 
 

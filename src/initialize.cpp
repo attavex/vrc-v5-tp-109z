@@ -12,12 +12,7 @@ void initialize() {
     //visSensor.set_auto_white_balance(true);
     //LCD
     //LCD SELECT
-    if(pros::competition::is_disabled())
-    {
-        lcdAuton();
-    }
     //std::cout << pros::lcd::initialize() << std::endl;
-    pros::delay(200);
 }
 
 /**
