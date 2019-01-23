@@ -2,12 +2,12 @@
 #define cataLimitPort 'a'
 //DEFS//
 //Vis Sensor
-pros::Vision visSensor(5);
+pros::Vision visSensor(11);
 
 
 //Motors
-pros::Motor cata(14, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor in(19, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor cata(7, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor in(8, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
 
 
 //Controller (Defined two times for okapi uses)
@@ -20,24 +20,24 @@ pros::ADIDigitalIn cataLimit(cataLimitPort);
 
 
 //Drive Motors
-MotorGroup left = MotorGroup({18, 15});
-MotorGroup right = MotorGroup({-17, -11});
+MotorGroup left = MotorGroup({-3, 5});
+MotorGroup right = MotorGroup({-1, 4});
 
 //DEFINE CHASSIS//
+/*
 ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
   left, right,
   AbstractMotor::gearset::green, // Speed gearset
-  {4_in, 12_in} // 4 inch wheels
+  {4_in, 9.5_in} // 4 inch wheels
 );
 
-
+/*
 AsyncMotionProfileController profileController = AsyncControllerFactory::motionProfile(
   1.0,  // Maximum linear velocity of the Chassis in m/s
   2.0,  // Maximum linear acceleration of the Chassis in m/s/s
   10.0, // Maximum linear jerk of the Chassis in m/s/s/s
   robotChassis // Chassis Controller
 );
-
 /*
 //ENCODER DRIVEGET//
 int driveGet()

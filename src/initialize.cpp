@@ -2,9 +2,9 @@
 
 lv_theme_t * theme = lv_theme_alien_init(210, NULL);
 
-int autonNumber;
+int autonNumber = 5;
 static std::string autons[] = {"Skills","Red Front","Red Back","Blue Front","Blue Back"};
-
+lv_obj_t * selectionDisplay; //= lv_label_create(background, NULL);
 static lv_obj_t * background;
 lv_obj_t * label;
 
@@ -12,12 +12,11 @@ static lv_res_t btn_rel_action(lv_obj_t * btn)
 {
   int x = lv_obj_get_free_num(btn);
     autonNumber = x;
-    /*
-    std::string text = ("Autons " + autons[(int)autonNumber]);
-    const char* c = text.c_str();
-    lv_label_set_text(lab, c);
-    lv_obj_set_x(lab, 50);
-*/
+  std::string selectionText = ("Auton - " + autons[(int)autonNumber]);
+  const char* selection = selectionText.c_str();
+  lv_label_set_text(selectionDisplay, selection);
+  lv_obj_set_x(selectionDisplay, 10);
+
     return LV_RES_OK;
 }
 
@@ -28,13 +27,16 @@ void selectAuton()
   background = lv_page_create(NULL, NULL);
   lv_scr_load(background);
 
+  selectionDisplay = lv_label_create(background, NULL);
+  lv_label_set_text(selectionDisplay, "109Z - Select an Autonomous");
+/*
   //Displays Current Selection of Auton
   lv_obj_t * selectionDisplay = lv_label_create(background, NULL);
   std::string selectionText = ("Auton - " + autons[(int)autonNumber]);
   const char* selection = selectionText.c_str();
   lv_label_set_text(selectionDisplay, selection);
   lv_obj_set_x(selectionDisplay, 10);
-
+*/
   //Create Button to Select Red Front Auton
   lv_obj_t * redFrontButton = lv_btn_create(background, NULL);
   label = lv_label_create(redFrontButton, NULL);
@@ -84,8 +86,13 @@ void selectAuton()
 }
 
 
-
+ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
+  left, right,
+  AbstractMotor::gearset::green, // Speed gearset
+  {4_in, 9.5_in} // 4 inch wheels
+);
 void initialize() {
+
     //VISION
     //visSensor.set_auto_white_balance(true);
 }

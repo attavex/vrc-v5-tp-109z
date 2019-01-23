@@ -223,8 +223,6 @@ void progSkills()
 
 
 
-
-
 void autonomous() 
 { 
 /**
@@ -249,7 +247,8 @@ void autonomous()
    }
    else if (autonNumber == 3) //BLUE FRONT AUTON
    {
-      blueAuton();
+      //blueAuton();
+      robotChassis.moveDistance(1_m);
    }
    else if (autonNumber == 4) //BLUE BACK AUTON
    {
