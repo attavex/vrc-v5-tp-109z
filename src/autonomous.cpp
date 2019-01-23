@@ -235,7 +235,10 @@ void autonomous()
 
    if (autonNumber == 0) //PROGRAMMING SKILLS
    {
-      progSkills();
+      profileController.generatePath({Point{0_ft, 0_ft, 0_deg}, Point{3_ft, 0_ft, 0_deg}}, "Test");
+      profileController.setTarget("Test");
+      profileController.waitUntilSettled();
+     //progSkills();
    }
    else if (autonNumber == 1) //RED FRONT AUTON
    {
@@ -247,8 +250,8 @@ void autonomous()
    }
    else if (autonNumber == 3) //BLUE FRONT AUTON
    {
-      //blueAuton();
-      robotChassis.moveDistance(1_m);
+      blueAuton();
+      //robotChassis.moveDistance(1_m);
    }
    else if (autonNumber == 4) //BLUE BACK AUTON
    {

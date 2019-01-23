@@ -24,14 +24,12 @@ MotorGroup left = MotorGroup({-3, 5});
 MotorGroup right = MotorGroup({-1, 4});
 
 //DEFINE CHASSIS//
-/*
 ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
   left, right,
   AbstractMotor::gearset::green, // Speed gearset
-  {4_in, 9.5_in} // 4 inch wheels
+  {4_in, 9.5_in} // 4 inch wheels and a 9.5 inch wheelbase
 );
 
-/*
 AsyncMotionProfileController profileController = AsyncControllerFactory::motionProfile(
   1.0,  // Maximum linear velocity of the Chassis in m/s
   2.0,  // Maximum linear acceleration of the Chassis in m/s/s

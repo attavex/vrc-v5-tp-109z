@@ -86,11 +86,7 @@ void selectAuton()
 }
 
 
-ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
-  left, right,
-  AbstractMotor::gearset::green, // Speed gearset
-  {4_in, 9.5_in} // 4 inch wheels
-);
+
 void initialize() {
 
     //VISION

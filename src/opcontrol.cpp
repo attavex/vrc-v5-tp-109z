@@ -9,7 +9,7 @@ void opcontrol()
 	{
 		
 		//DRIVE
-		//robotChassis.arcade(controller.getAnalog(ControllerAnalog::leftY), controller.getAnalog(ControllerAnalog::leftX));
+		robotChassis.arcade(controller.getAnalog(ControllerAnalog::leftY), controller.getAnalog(ControllerAnalog::leftX));
 
 		//INTAKE
 		int inSpeedNormal = master.get_analog(ANALOG_RIGHT_Y);
