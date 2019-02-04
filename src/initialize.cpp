@@ -2,7 +2,7 @@
 
 lv_theme_t * theme = lv_theme_alien_init(210, NULL);
 
-int autonNumber = 5;
+int autonNumber = 10;
 static std::string autons[] = {"Skills","Red Front","Red Back","Blue Front","Blue Back"};
 lv_obj_t * selectionDisplay; //= lv_label_create(background, NULL);
 static lv_obj_t * background;
@@ -22,21 +22,14 @@ static lv_res_t btn_rel_action(lv_obj_t * btn)
 
 void selectAuton()
 {
-  //Sets Theme to Alien and Sets Background
+  //Sets Background
   //lv_set_theme_current(theme);
   background = lv_page_create(NULL, NULL);
   lv_scr_load(background);
 
   selectionDisplay = lv_label_create(background, NULL);
   lv_label_set_text(selectionDisplay, "109Z - Select an Autonomous");
-/*
-  //Displays Current Selection of Auton
-  lv_obj_t * selectionDisplay = lv_label_create(background, NULL);
-  std::string selectionText = ("Auton - " + autons[(int)autonNumber]);
-  const char* selection = selectionText.c_str();
-  lv_label_set_text(selectionDisplay, selection);
-  lv_obj_set_x(selectionDisplay, 10);
-*/
+
   //Create Button to Select Red Front Auton
   lv_obj_t * redFrontButton = lv_btn_create(background, NULL);
   label = lv_label_create(redFrontButton, NULL);
@@ -44,11 +37,17 @@ void selectAuton()
   lv_obj_align(redFrontButton, label, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 0);
   lv_obj_set_height(redFrontButton, 50);
 
-  //Create Button to Select Red Back Auton
+  //Create Button to Select Red Back Auton (with park)
   lv_obj_t * redBackButton = lv_btn_create(lv_scr_act(), redFrontButton);
   label = lv_label_create(redBackButton, NULL);
-  lv_label_set_text(label, "Red Back");
+  lv_label_set_text(label, "Red Back + Park");
   lv_obj_align(redBackButton, redFrontButton, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
+
+  //Create Button to Select Red Back Auton (no park)
+  lv_obj_t * redBackButtonNoPark = lv_btn_create(lv_scr_act(), redFrontButton);
+  label = lv_label_create(redBackButtonNoPark, NULL);
+  lv_label_set_text(label, "Red Back");
+  lv_obj_align(redBackButtonNoPark, redBackButton, LV_ALIGN_OUT_BOTTOM_MID, 0, -10);
 
   //Create Button to Select Blue Front Auton
   lv_obj_t * blueFrontButton = lv_btn_create(lv_scr_act(), redFrontButton);
@@ -56,11 +55,18 @@ void selectAuton()
   lv_label_set_text(label, "Blue Front");
   lv_obj_align(blueFrontButton, redFrontButton, LV_ALIGN_OUT_RIGHT_MID, 50, 0);
 
-  //Create Button to Select Blue Back Auton
+  //Create Button to Select Blue Back Auton (with park)
   lv_obj_t * blueBackButton = lv_btn_create(lv_scr_act(), redBackButton);
   label = lv_label_create(blueBackButton, NULL);
-  lv_label_set_text(label, "Blue Back");
+  lv_label_set_text(label, "Blue Back + Park");
   lv_obj_align(blueBackButton, redBackButton, LV_ALIGN_OUT_RIGHT_MID, 50, 0);
+
+  //Create Button to Select Blue Back Auton (no park)
+  lv_obj_t * blueBackButtonNoPark = lv_btn_create(lv_scr_act(), redFrontButton);
+  label = lv_label_create(blueBackButtonNoPark, NULL);
+  lv_label_set_text(label, "Blue Back");
+  lv_obj_align(blueBackButtonNoPark, blueBackButton, LV_ALIGN_OUT_BOTTOM_MID, 0, -10);
+
 
   //Create Button to Select Programming Skills 
   lv_obj_t * skillsButton = lv_btn_create(lv_scr_act(), NULL);
@@ -75,13 +81,18 @@ void selectAuton()
   lv_btn_set_action(redBackButton, LV_BTN_ACTION_CLICK, btn_rel_action);
   lv_btn_set_action(blueFrontButton, LV_BTN_ACTION_CLICK, btn_rel_action);
   lv_btn_set_action(blueBackButton, LV_BTN_ACTION_CLICK, btn_rel_action);
+  lv_btn_set_action(blueBackButtonNoPark, LV_BTN_ACTION_CLICK, btn_rel_action);
+   lv_btn_set_action(redBackButtonNoPark, LV_BTN_ACTION_CLICK, btn_rel_action);
   lv_btn_set_action(skillsButton, LV_BTN_ACTION_CLICK, btn_rel_action);
+
 
    //Sets numbers for auton
    lv_obj_set_free_num(redFrontButton, 1);
    lv_obj_set_free_num(redBackButton, 2);
    lv_obj_set_free_num(blueFrontButton, 3);
    lv_obj_set_free_num(blueBackButton, 4);
+   lv_obj_set_free_num(blueBackButtonNoPark, 5);
+   lv_obj_set_free_num(redBackButtonNoPark, 6);
    lv_obj_set_free_num(skillsButton, 0);
 }
 

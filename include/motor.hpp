@@ -2,6 +2,7 @@
 #define MOTOR_H
 #include "main.h"
 
+//extern SettledUtil create(double iatTargetError = 50, double iatTargetDerivative = 5, QTime iatTargetTime = 250_ms);
 
 //DEFS//
 //Vis Sensor
@@ -18,6 +19,8 @@ extern MotorGroup right;
 
 extern pros::Motor cata;
 extern pros::Motor in;
+extern pros::Motor pocketKnife;
+extern pros::Motor descore;
 //Controllers
 extern pros::Controller master;
 extern Controller controller;

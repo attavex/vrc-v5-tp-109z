@@ -8,6 +8,8 @@ pros::Vision visSensor(11);
 //Motors
 pros::Motor cata(7, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor in(8, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor descore(10, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor pocketKnife(6, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 
 
 //Controller (Defined two times for okapi uses)
@@ -30,10 +32,12 @@ ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
   {4_in, 9.5_in} // 4 inch wheels and a 9.5 inch wheelbase
 );
 
+//static SettledUtil create(double iatTargetError = 50, double iatTargetDerivative = 5, QTime iatTargetTime = 250_ms);
+
 AsyncMotionProfileController profileController = AsyncControllerFactory::motionProfile(
-  1.0,  // Maximum linear velocity of the Chassis in m/s
-  2.0,  // Maximum linear acceleration of the Chassis in m/s/s
-  10.0, // Maximum linear jerk of the Chassis in m/s/s/s
+  2.0,  // Maximum linear velocity of the Chassis in m/s
+  1.5,  // Maximum linear acceleration of the Chassis in m/s/s
+  4.0, // Maximum linear jerk of the Chassis in m/s/s/s
   robotChassis // Chassis Controller
 );
 /*
@@ -82,17 +86,17 @@ void cataActivity(void *x)
 {
     while(true)
     {
-        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) cata.move(-127);
-        else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) cata.move(127);
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) cata.move(127);
+        else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) cata.move(-127);
         else
         {
             if (!cataLimit.get_value())
             {
-                cata.move(-127);
+                cata.move(127);
             }
             else
             {
-                cata.move(-10);
+                cata.move(10);
             }
         }
     }
