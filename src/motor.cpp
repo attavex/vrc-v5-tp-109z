@@ -26,12 +26,22 @@ MotorGroup left = MotorGroup({-3, 5});
 MotorGroup right = MotorGroup({-1, 4});
 
 //DEFINE CHASSIS//
+
+ChassisControllerPID robotChassis = ChassisControllerFactory::create(
+  left, right,
+  IterativePosPIDController::Gains{0.5, 0, 0},
+  IterativePosPIDController::Gains{0.1, 0.05, 0},
+  IterativePosPIDController::Gains{0.2, 0, 0},
+  AbstractMotor::gearset::green,
+  {4_in, 9.5_in}
+);
+/*
 ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
   left, right,
   AbstractMotor::gearset::green, // Speed gearset
   {4_in, 9.5_in} // 4 inch wheels and a 9.5 inch wheelbase
 );
-
+*/
 //static SettledUtil create(double iatTargetError = 50, double iatTargetDerivative = 5, QTime iatTargetTime = 250_ms);
 
 AsyncMotionProfileController profileController = AsyncControllerFactory::motionProfile(
@@ -40,6 +50,7 @@ AsyncMotionProfileController profileController = AsyncControllerFactory::motionP
   4.0, // Maximum linear jerk of the Chassis in m/s/s/s
   robotChassis // Chassis Controller
 );
+
 /*
 //ENCODER DRIVEGET//
 int driveGet()

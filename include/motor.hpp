@@ -30,7 +30,8 @@ extern int driveGet();
 extern int autonNumber;
 
 //DEFINE CHASSIS/MOTIONPROFILE//
-extern ChassisControllerIntegrated robotChassis;
+extern ChassisControllerPID robotChassis;
+//extern ChassisControllerIntegrated robotChassis;
 extern AsyncMotionProfileController profileController;
 //SENSORS//
 extern pros::ADIDigitalIn cataLimit;
