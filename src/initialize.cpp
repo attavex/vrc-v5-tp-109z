@@ -42,13 +42,13 @@ void selectAuton()
   label = lv_label_create(redBackButton, NULL);
   lv_label_set_text(label, "Red Back + Park");
   lv_obj_align(redBackButton, redFrontButton, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
-
+/*
   //Create Button to Select Red Back Auton (no park)
   lv_obj_t * redBackButtonNoPark = lv_btn_create(lv_scr_act(), redFrontButton);
   label = lv_label_create(redBackButtonNoPark, NULL);
   lv_label_set_text(label, "Red Back");
-  lv_obj_align(redBackButtonNoPark, redBackButton, LV_ALIGN_OUT_BOTTOM_MID, 0, -10);
-
+  lv_obj_align(redBackButtonNoPark, redBackButton, LV_ALIGN_OUT_BOTTOM_MID, 0, 5);
+*/
   //Create Button to Select Blue Front Auton
   lv_obj_t * blueFrontButton = lv_btn_create(lv_scr_act(), redFrontButton);
   label = lv_label_create(blueFrontButton, NULL);
@@ -59,15 +59,15 @@ void selectAuton()
   lv_obj_t * blueBackButton = lv_btn_create(lv_scr_act(), redBackButton);
   label = lv_label_create(blueBackButton, NULL);
   lv_label_set_text(label, "Blue Back + Park");
-  lv_obj_align(blueBackButton, redBackButton, LV_ALIGN_OUT_RIGHT_MID, 50, 0);
-
+  lv_obj_align(blueBackButton, redBackButton, LV_ALIGN_OUT_RIGHT_MID, 50, 0); //50
+/*
   //Create Button to Select Blue Back Auton (no park)
   lv_obj_t * blueBackButtonNoPark = lv_btn_create(lv_scr_act(), redFrontButton);
   label = lv_label_create(blueBackButtonNoPark, NULL);
   lv_label_set_text(label, "Blue Back");
-  lv_obj_align(blueBackButtonNoPark, blueBackButton, LV_ALIGN_OUT_BOTTOM_MID, 0, -10);
+  lv_obj_align(blueBackButtonNoPark, blueBackButton, LV_ALIGN_OUT_BOTTOM_MID, 0, 5);
 
-
+*/
   //Create Button to Select Programming Skills 
   lv_obj_t * skillsButton = lv_btn_create(lv_scr_act(), NULL);
   label = lv_label_create(skillsButton,NULL);
@@ -81,8 +81,8 @@ void selectAuton()
   lv_btn_set_action(redBackButton, LV_BTN_ACTION_CLICK, btn_rel_action);
   lv_btn_set_action(blueFrontButton, LV_BTN_ACTION_CLICK, btn_rel_action);
   lv_btn_set_action(blueBackButton, LV_BTN_ACTION_CLICK, btn_rel_action);
-  lv_btn_set_action(blueBackButtonNoPark, LV_BTN_ACTION_CLICK, btn_rel_action);
-   lv_btn_set_action(redBackButtonNoPark, LV_BTN_ACTION_CLICK, btn_rel_action);
+  //lv_btn_set_action(blueBackButtonNoPark, LV_BTN_ACTION_CLICK, btn_rel_action);
+   //lv_btn_set_action(redBackButtonNoPark, LV_BTN_ACTION_CLICK, btn_rel_action);
   lv_btn_set_action(skillsButton, LV_BTN_ACTION_CLICK, btn_rel_action);
 
 
@@ -91,8 +91,8 @@ void selectAuton()
    lv_obj_set_free_num(redBackButton, 2);
    lv_obj_set_free_num(blueFrontButton, 3);
    lv_obj_set_free_num(blueBackButton, 4);
-   lv_obj_set_free_num(blueBackButtonNoPark, 5);
-   lv_obj_set_free_num(redBackButtonNoPark, 6);
+   //lv_obj_set_free_num(blueBackButtonNoPark, 5);
+   //lv_obj_set_free_num(redBackButtonNoPark, 6);
    lv_obj_set_free_num(skillsButton, 0);
 }
 

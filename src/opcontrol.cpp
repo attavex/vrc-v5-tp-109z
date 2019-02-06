@@ -32,7 +32,8 @@ void opcontrol()
 
 
 		//DRIVE
-		//robotChassis.arcade(controller.getAnalog(ControllerAnalog::leftY), controller.getAnalog(ControllerAnalog::leftX));
+		robotChassis.arcade(controller.getAnalog(ControllerAnalog::leftY), controller.getAnalog(ControllerAnalog::leftX));
+		/*
 		if(controller.getDigital(ControllerDigital::X))
 		{
 		  left.moveVoltage(-2400);
@@ -47,7 +48,7 @@ void opcontrol()
 		{
           robotChassis.arcade(controller.getAnalog(ControllerAnalog::leftY), controller.getAnalog(ControllerAnalog::leftX));
 		}
-
+*/
 		//INTAKE
 		int inSpeedNormal = master.get_analog(ANALOG_RIGHT_Y);
 		int inSpeedFast = master.get_analog(ANALOG_RIGHT_X);
