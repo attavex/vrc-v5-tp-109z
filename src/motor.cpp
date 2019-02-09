@@ -29,9 +29,9 @@ MotorGroup right = MotorGroup({-1, 4});
 
 ChassisControllerPID robotChassis = ChassisControllerFactory::create(
   left, right,
-  IterativePosPIDController::Gains{0.5, 0, 0},
-  IterativePosPIDController::Gains{0.1, 0.05, 0},
-  IterativePosPIDController::Gains{0.2, 0, 0},
+  IterativePosPIDController::Gains{0.001, 0.0005, 0.00005},
+  IterativePosPIDController::Gains{0, 0, 0},
+  IterativePosPIDController::Gains{0.0025, 0.0048, -1.25}, //0.006 , 0.0048, -.03
   AbstractMotor::gearset::green,
   {4_in, 9.5_in}
 );
