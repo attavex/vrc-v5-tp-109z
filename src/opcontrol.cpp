@@ -2,6 +2,7 @@
 static lv_obj_t * background;
 void opcontrol()
 { 
+	robotChassis.stop();
 	//CATA//
 	pros::Task activityCata(cataActivity, NULL);
 	
@@ -64,13 +65,15 @@ void opcontrol()
 		}
 		*/
 
-        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) pocketKnife.move(127);
-        else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) pocketKnife.move(-127);
-		else pocketKnife.move(8);
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) pocketKnife.move(-127);
+        else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) pocketKnife.move(127);
+		else pocketKnife.move(-8);
 
-		if(controller.getDigital(ControllerDigital::up)) descore.move(127);
-		else if(controller.getDigital(ControllerDigital::down)) descore.move(-127);
+		if(controller.getDigital(ControllerDigital::X)) descore.move(127);
+		else if(controller.getDigital(ControllerDigital::A)) descore.move(-127);
 		else descore.move(-8);
+
+		if(controller.getDigital(ControllerDigital::up)) robotChassis.stop();
 		
 /*
         if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1))
