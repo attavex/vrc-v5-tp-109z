@@ -8,6 +8,19 @@ lv_obj_t * selectionDisplay; //= lv_label_create(background, NULL);
 static lv_obj_t * background;
 lv_obj_t * label;
 
+pros::vision_signature red;
+pros::vision_signature blue;
+pros::vision_signature green;
+pros::vision_color_code_t redFlagColorCode;
+pros::vision_color_code_t blueFlagColorCode;
+
+
+
+
+
+
+
+
 static lv_res_t btn_rel_action(lv_obj_t * btn)
 {
   int x = lv_obj_get_free_num(btn);
@@ -101,7 +114,45 @@ void selectAuton()
 void initialize() {
 
     //VISION
-    //visSensor.set_auto_white_balance(true);
+  red.id = 1;
+  red.u_min = 7561;
+  red.u_max = 8315;
+  red.u_mean = 7938;
+  red.v_min = -1135;
+  red.v_max = 157;
+  red.v_mean = -489;
+  red.rgb = 6632497;
+  red.type = 0;
+  red.range = 10;
+  visSensor.set_signature(1, &red);
+
+  blue.id = 2;
+  blue.u_min = -4321;
+  blue.u_max = -3313;
+  blue.u_mean = -3818;
+  blue.v_min = 14477;
+  blue.v_max = 16195;
+  blue.v_mean = 15336;
+  blue.rgb = 594748;
+  blue.type = 0;
+  blue.range = 10;
+  visSensor.set_signature(2, &blue);
+
+  green.id = 3;
+  green.u_min = -3407;
+  green.u_max = -3211;
+  green.u_mean = -3308;
+  green.v_min = -5365;
+  green.v_max = -5131;
+  green.v_mean = -5248;
+  green.rgb = 9354101;
+  green.type = 0;
+  green.range = 11;
+  visSensor.set_signature(3, &green);
+
+  redFlagColorCode = visSensor.create_color_code(1, 3);
+  blueFlagColorCode = visSensor.create_color_code(2, 3);
+
 }
 
 /**

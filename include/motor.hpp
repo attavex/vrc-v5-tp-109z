@@ -7,6 +7,8 @@
 //DEFS//
 //Vis Sensor
 extern pros::Vision visSensor;
+extern pros::vision_color_code_t blueFlagColorCode;
+extern pros::vision_color_code_t redFlagColorCode;
 //Motors
 /*
 extern pros::Motor frontRight;
@@ -38,6 +40,7 @@ extern pros::ADIDigitalIn cataLimit;
 
 
 //FUNCTIONS//
+void visionAim(void *x);
 void cataActivity(void *x);
 void driveSpeed(int iSpeed);
 void turnLeft(int iSpeed);

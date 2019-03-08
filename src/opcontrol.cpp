@@ -5,6 +5,7 @@ void opcontrol()
 	robotChassis.stop();
 	//CATA//
 	pros::Task activityCata(cataActivity, NULL);
+	pros::Task visAutoAim(visionAim, NULL);
 	
 	//LVGL//
   background = lv_page_create(NULL, NULL);

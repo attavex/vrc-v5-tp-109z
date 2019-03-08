@@ -2,8 +2,7 @@
 #define cataLimitPort 'a'
 //DEFS//
 //Vis Sensor
-pros::Vision visSensor(11);
-
+pros::Vision visSensor(11, pros::vision_zero(1));
 
 //Motors
 pros::Motor cata(7, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
