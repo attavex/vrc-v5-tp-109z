@@ -5,7 +5,7 @@ void opcontrol()
 	robotChassis.stop();
 	//CATA//
 	pros::Task activityCata(cataActivity, NULL);
-	pros::Task visAutoAim(visionAim, NULL);
+	//pros::Task visAutoAim(visionAim, NULL);
 	
 	//LVGL//
   background = lv_page_create(NULL, NULL);
@@ -48,7 +48,7 @@ void opcontrol()
 		}
 		else
 		{
-          robotChassis.arcade(controller.getAnalog(ControllerAnalog::leftY), controller.getAnalog(ControllerAnalog::leftX));
+      robotChassis.arcade(controller.getAnalog(ControllerAnalog::leftY), controller.getAnalog(ControllerAnalog::leftX));
 		}
 */
 		//INTAKE
@@ -66,15 +66,22 @@ void opcontrol()
 		}
 		*/
 
-        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) pocketKnife.move(-127);
-        else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) pocketKnife.move(127);
-		else pocketKnife.move(-8);
-
-		if(controller.getDigital(ControllerDigital::X)) descore.move(127);
-		else if(controller.getDigital(ControllerDigital::A)) descore.move(-127);
-		else descore.move(-8);
-
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) twoBar.move(-127);
+      else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) twoBar.move(127);
+		else twoBar.move(5);
+/*
+		if(controller.getDigital(ControllerDigital::X)) cata.move(127);
+		else if(controller.getDigital(ControllerDigital::A)) cata.move(-127);
+		else cata.move(12);
+*/
 		if(controller.getDigital(ControllerDigital::up)) robotChassis.stop();
+
+		if(controller.getDigital(ControllerDigital::down))
+		{
+			robotChassis.setMaxVelocity(150);
+			robotChassis.turnAngle(55_deg);
+			robotChassis.setMaxVelocity(200);
+		} 
 		
 /*
         if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1))

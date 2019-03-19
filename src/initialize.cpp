@@ -113,39 +113,45 @@ void selectAuton()
 
 void initialize() {
 
+//vision::signature SIG_1 (1, 12891, 13979, 13435, -2979, -2545, -2762, 3.000, 0);
+
     //VISION
   red.id = 1;
-  red.u_min = 7561;
-  red.u_max = 8315;
-  red.u_mean = 7938;
-  red.v_min = -1135;
-  red.v_max = 157;
-  red.v_mean = -489;
-  red.rgb = 6632497;
+  red.u_min = 12891;
+  red.u_max = 13979;
+  red.u_mean = 13435;
+  red.v_min = -2979;
+  red.v_max = -2545;
+  red.v_mean = -2762;
+  red.rgb = 3.000;
   red.type = 0;
   red.range = 10;
   visSensor.set_signature(1, &red);
 
+  //vision::signature SIG_2 (2, -2769, -415, -1592, 1191, 4937, 3064, 1.200, 0);
+
   blue.id = 2;
-  blue.u_min = -4321;
-  blue.u_max = -3313;
-  blue.u_mean = -3818;
-  blue.v_min = 14477;
-  blue.v_max = 16195;
-  blue.v_mean = 15336;
-  blue.rgb = 594748;
+  blue.u_min = -2769;
+  blue.u_max = -415;
+  blue.u_mean = -1592;
+  blue.v_min = 1191;
+  blue.v_max = 4937;
+  blue.v_mean = 3064;
+  blue.rgb = 1.200;
   blue.type = 0;
   blue.range = 10;
   visSensor.set_signature(2, &blue);
 
+  //vision::signature SIG_3 (3, -445, 55, -195, -7939, -7515, -7727, 4.400, 0);
+
   green.id = 3;
-  green.u_min = -3407;
-  green.u_max = -3211;
-  green.u_mean = -3308;
-  green.v_min = -5365;
-  green.v_max = -5131;
-  green.v_mean = -5248;
-  green.rgb = 9354101;
+  green.u_min = -445;
+  green.u_max = -55;
+  green.u_mean = -195;
+  green.v_min = -7939;
+  green.v_max = -7515;
+  green.v_mean = -7727;
+  green.rgb = 4.400;
   green.type = 0;
   green.range = 11;
   visSensor.set_signature(3, &green);

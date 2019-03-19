@@ -5,10 +5,10 @@
 pros::Vision visSensor(11, pros::vision_zero(1));
 
 //Motors
-pros::Motor cata(7, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor in(8, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor descore(10, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor pocketKnife(6, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor cata(6, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor in(7, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor twoBar(5, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor pocketKnife(2, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 
 
 //Controller (Defined two times for okapi uses)
@@ -21,16 +21,15 @@ pros::ADIDigitalIn cataLimit(cataLimitPort);
 
 
 //Drive Motors
-MotorGroup left = MotorGroup({-3, 5});
-MotorGroup right = MotorGroup({-1, 4});
+MotorGroup left = MotorGroup({3, 10});
+MotorGroup right = MotorGroup({-8, -9});
 
 //DEFINE CHASSIS//
-
 ChassisControllerPID robotChassis = ChassisControllerFactory::create(
   left, right,
   IterativePosPIDController::Gains{0.001, 0.0005, 0.00005},
   IterativePosPIDController::Gains{0, 0, 0},
-  IterativePosPIDController::Gains{0.0025, 0.0048, -1.25}, //0.006 , 0.0048, -.03
+  IterativePosPIDController::Gains{0.0217, 0.0013, 0.000585}, //0.0025 , 0.0048, 0.00
   AbstractMotor::gearset::green,
   {4_in, 9.5_in}
 );
@@ -38,7 +37,7 @@ ChassisControllerPID robotChassis = ChassisControllerFactory::create(
 ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
   left, right,
   AbstractMotor::gearset::green, // Speed gearset
-  {4_in, 9.5_in} // 4 inch wheels and a 9.5 inch wheelbase
+  {4_in, 13_in} // 4 inch wheels and a 9.5 inch wheelbase
 );
 */
 //static SettledUtil create(double iatTargetError = 50, double iatTargetDerivative = 5, QTime iatTargetTime = 250_ms);
@@ -106,7 +105,7 @@ void cataActivity(void *x)
             }
             else
             {
-                cata.move(10);
+                cata.move(15);
             }
         }
     }

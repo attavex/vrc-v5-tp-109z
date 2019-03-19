@@ -4,7 +4,7 @@ void redAuton()
 {
   pocketKnife.move(-10);
   in.move(-127);
-  descore.move(-9);
+  twoBar.move(5);
   left.tarePosition();
   right.tarePosition();
   robotChassis.moveDistanceAsync(3_ft);
@@ -24,7 +24,7 @@ void redAuton()
    robotChassis.setMaxVelocity(100);
    pros::delay(100);
    //in.move(0);
-   robotChassis.turnAngle(-83_deg);
+   robotChassis.turnAngle(-113_deg);
    robotChassis.waitUntilSettled();
    pros::delay(150);
    cata.move(127);
@@ -35,7 +35,7 @@ void redAuton()
   /*
    right.tarePosition();
    left.tarePosition();
-   robotChassis.turnAngle(20_deg);
+   robotChassis.turnAngle(30_deg);
    */
    //pros::delay(300);
    //robotChassis.setMaxVelocity(200);
@@ -50,7 +50,7 @@ void redAuton()
    //robotChassis.waitUntilSettled();
    robotChassis.moveDistance(-2.1_ft);
    robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(90_deg);
+   robotChassis.turnAngle(100_deg);
    robotChassis.setMaxVelocity(200);
     left.moveVoltage(-9000);
    right.moveVoltage(-9000);
@@ -60,14 +60,14 @@ void redAuton()
    in.move(127);
    robotChassis.moveDistance(2.3_ft);
    robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(-45_deg);
+   robotChassis.turnAngle(-55_deg);
    in.move(-127);
    pros::delay(200);
    cata.move(127);
    pros::delay(400);
    cata.move(0);
    pros::delay(200);
-   robotChassis.turnAngle(-10_deg);
+   robotChassis.turnAngle(-20_deg);
    pros::delay(50);
    robotChassis.setMaxVelocity(200);
    robotChassis.moveDistance(3_ft);
@@ -78,7 +78,7 @@ void blueAuton()
 {
   pocketKnife.move(-10);
   in.move(-127);
-  descore.move(-9);
+  twoBar.move(5);
   left.tarePosition();
   right.tarePosition();
   robotChassis.moveDistanceAsync(3_ft);
@@ -98,7 +98,7 @@ void blueAuton()
    robotChassis.setMaxVelocity(100);
    pros::delay(100);
    //in.move(0);
-   robotChassis.turnAngle(85_deg);
+   robotChassis.turnAngle(113_deg);
    robotChassis.waitUntilSettled();
    pros::delay(150);
    cata.move(127);
@@ -109,7 +109,7 @@ void blueAuton()
   /*
    right.tarePosition();
    left.tarePosition();
-   robotChassis.turnAngle(20_deg);
+   robotChassis.turnAngle(30_deg);
    */
    //pros::delay(300);
    //robotChassis.setMaxVelocity(200);
@@ -124,7 +124,7 @@ void blueAuton()
    //robotChassis.waitUntilSettled();
    robotChassis.moveDistance(-2.1_ft);
    robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(-90_deg);
+   robotChassis.turnAngle(-100_deg);
    robotChassis.setMaxVelocity(200);
     left.moveVoltage(-9000);
    right.moveVoltage(-9000);
@@ -134,14 +134,14 @@ void blueAuton()
    in.move(127);
    robotChassis.moveDistance(2.3_ft);
    robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(45_deg);
+   robotChassis.turnAngle(55_deg);
    in.move(-127);
    pros::delay(200);
    cata.move(127);
    pros::delay(400);
    cata.move(0);
    pros::delay(200);
-   robotChassis.turnAngle(10_deg);
+   robotChassis.turnAngle(20_deg);
    pros::delay(50);
    robotChassis.setMaxVelocity(200);
    robotChassis.moveDistance(3_ft);
@@ -154,7 +154,7 @@ void redBackAutonPark()
 {
   pocketKnife.move(-10);
   in.move(-127);
-  descore.move(-9);
+  twoBar.move(5);
   left.tarePosition();
   right.tarePosition();
   robotChassis.setMaxVelocity(200);
@@ -169,7 +169,7 @@ void redBackAutonPark()
    robotChassis.moveDistance(-0.6_ft);
    pros::delay(200);
    robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(-90_deg);
+   robotChassis.turnAngle(-100_deg);
    pros::delay(200);
    left.moveVoltage(11000);
    right.moveVoltage(11000);
@@ -189,7 +189,7 @@ void blueBackAutonPark()
 {
    pocketKnife.move(-10);
   in.move(-127);
-  descore.move(-9);
+ twoBar.move(5);
   left.tarePosition();
   right.tarePosition();
   robotChassis.setMaxVelocity(200);
@@ -204,7 +204,7 @@ void blueBackAutonPark()
    robotChassis.moveDistance(-0.6_ft);
    pros::delay(200);
    robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(90_deg);
+   robotChassis.turnAngle(100_deg);
    pros::delay(200);
    left.moveVoltage(11000);
    right.moveVoltage(11000);
@@ -221,7 +221,7 @@ void progSkills()
 {
   pocketKnife.move(-10);
   in.move(-127);
-  descore.move(-9);
+ twoBar.move(5);
   left.tarePosition();
   right.tarePosition();
   robotChassis.moveDistanceAsync(3_ft);
@@ -246,7 +246,7 @@ void progSkills()
    robotChassis.setMaxVelocity(100);
    pros::delay(100);
    //in.move(0);
-   robotChassis.turnAngle(-83_deg);
+   robotChassis.turnAngle(-93_deg);
    robotChassis.waitUntilSettled();
    pros::delay(150);
    cata.move(127);
@@ -257,7 +257,7 @@ void progSkills()
   /*
    right.tarePosition();
    left.tarePosition();
-   robotChassis.turnAngle(20_deg);
+   robotChassis.turnAngle(30_deg);
    */
    //pros::delay(300);
    //robotChassis.setMaxVelocity(200);
@@ -272,7 +272,7 @@ void progSkills()
    //robotChassis.waitUntilSettled();
    robotChassis.moveDistance(-2.1_ft);
    robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(90_deg);
+   robotChassis.turnAngle(100_deg);
    robotChassis.setMaxVelocity(200);
     left.moveVoltage(-9000);
    right.moveVoltage(-9000);
@@ -282,7 +282,7 @@ void progSkills()
    in.move(127);
    robotChassis.moveDistance(2.3_ft);
    robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(-45_deg);
+   robotChassis.turnAngle(-55_deg);
    in.move(-127);
    pros::delay(200);
    cata.move(127);
@@ -333,13 +333,13 @@ void autonomous()
       robotChassis.setMaxVelocity(150);
       right.tarePosition();
       left.tarePosition();
-       robotChassis.turnAngle(90_deg);
+       robotChassis.turnAngle(100_deg);
     */
   //robotChassis.waitUntilSettled();
    }
    else if (autonNumber == 2) //RED BACK AUTON + PARK
    {
-     //robotChassis.turnAngle(-90_deg);
+     //robotChassis.turnAngle(-100_deg);
       redBackAutonPark();
    }
    else if (autonNumber == 3) //BLUE FRONT AUTON

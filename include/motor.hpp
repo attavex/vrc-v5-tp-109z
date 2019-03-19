@@ -22,7 +22,7 @@ extern MotorGroup right;
 extern pros::Motor cata;
 extern pros::Motor in;
 extern pros::Motor pocketKnife;
-extern pros::Motor descore;
+extern pros::Motor twoBar;
 //Controllers
 extern pros::Controller master;
 extern Controller controller;
