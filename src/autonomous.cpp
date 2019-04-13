@@ -1,5 +1,5 @@
 #include "main.h"
-
+/*
 void redAuton()
 {
   pocketKnife.move(-10);
@@ -40,6 +40,12 @@ void redAuton()
    //pros::delay(300);
    //robotChassis.setMaxVelocity(200);
    //robotChassis.moveDistanceAsync(4_ft);
+
+
+   /*
+
+
+
      while(!cataLimit.get_value())
    {
      cata.move(127);
@@ -114,6 +120,13 @@ void blueAuton()
    //pros::delay(300);
    //robotChassis.setMaxVelocity(200);
    //robotChassis.moveDistanceAsync(4_ft);
+
+
+/*
+
+
+
+
      while(!cataLimit.get_value())
    {
      cata.move(127);
@@ -262,6 +275,13 @@ void progSkills()
    //pros::delay(300);
    //robotChassis.setMaxVelocity(200);
    //robotChassis.moveDistanceAsync(4_ft);
+
+
+
+/*
+
+
+
      while(!cataLimit.get_value())
    {
      cata.move(127);
@@ -320,6 +340,8 @@ void autonomous()
  * autonNumber = 5 is Blue side back no park
  * autonNumber = 6 is Red side back no park
  **/
+
+/*
    if (autonNumber == 0) //PROGRAMMING SKILLS
    {
      progSkills();
@@ -335,6 +357,11 @@ void autonomous()
       left.tarePosition();
        robotChassis.turnAngle(100_deg);
     */
+
+
+
+   /* 
+
   //robotChassis.waitUntilSettled();
    }
    else if (autonNumber == 2) //RED BACK AUTON + PARK
@@ -360,3 +387,4 @@ void autonomous()
    }
 
 }
+*/

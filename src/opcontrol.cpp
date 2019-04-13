@@ -5,7 +5,7 @@ void opcontrol()
 	robotChassis.stop();
 	//CATA//
 	pros::Task activityCata(cataActivity, NULL);
-	//pros::Task visAutoAim(visionAim, NULL);
+	pros::Task visAutoAim(visionAim, NULL);
 	
 	//LVGL//
   background = lv_page_create(NULL, NULL);
@@ -68,7 +68,7 @@ void opcontrol()
 
         if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) twoBar.move(-127);
       else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) twoBar.move(127);
-		else twoBar.move(5);
+		else twoBar.move(-5);
 /*
 		if(controller.getDigital(ControllerDigital::X)) cata.move(127);
 		else if(controller.getDigital(ControllerDigital::A)) cata.move(-127);

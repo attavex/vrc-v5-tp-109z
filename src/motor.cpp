@@ -1,14 +1,15 @@
 #include "main.h"
-#define cataLimitPort 'a'
+#define cataLimitPort 'h'
 //DEFS//
 //Vis Sensor
-pros::Vision visSensor(11, pros::vision_zero(1));
+pros::Vision visSensor(19, pros::vision_zero(1));
 
 //Motors
-pros::Motor cata(6, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor in(7, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor twoBar(5, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor pocketKnife(2, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor cataRight(13, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor cataLeft(12, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor in(11, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor twoBar(20, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+//pros::Motor pocketKnife(2, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 
 
 //Controller (Defined two times for okapi uses)
@@ -21,8 +22,8 @@ pros::ADIDigitalIn cataLimit(cataLimitPort);
 
 
 //Drive Motors
-MotorGroup left = MotorGroup({3, 10});
-MotorGroup right = MotorGroup({-8, -9});
+MotorGroup left = MotorGroup({1, 14});
+MotorGroup right = MotorGroup({-3, -15});
 
 //DEFINE CHASSIS//
 ChassisControllerPID robotChassis = ChassisControllerFactory::create(
@@ -95,17 +96,28 @@ void cataActivity(void *x)
 {
     while(true)
     {
-        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) cata.move(127);
-        else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) cata.move(-127);
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1))
+        {
+           cataLeft.move(127);
+            cataRight.move(-127);
+        } 
+        else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2))
+        {
+            cataLeft.move(-127);
+            cataRight.move(127);
+        }
         else
         {
             if (!cataLimit.get_value())
             {
-                cata.move(127);
+               cataLeft.move(127);
+               cataRight.move(-127);
             }
+            
             else
             {
-                cata.move(15);
+                cataLeft.move(10);
+               cataRight.move(-10);
             }
         }
     }

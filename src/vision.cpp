@@ -4,10 +4,10 @@ bool isAlignedAngle = false;
 bool isAlignedLong = false;
 pros::vision_object_s_t blueRtn[2];
 pros::vision_object_s_t redRtn[2];
-int coordRangeMin = 0;
-int coordRangeMax = 50;
-int areaRangeMin = 0;
-int areaRangeMax = 50;
+int coordRangeMin = 100;
+int coordRangeMax = 140;
+int areaRangeMin = 2000;
+int areaRangeMax = 2100;
 
 void visionAim(void *x)
 {
