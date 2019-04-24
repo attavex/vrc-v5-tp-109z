@@ -7,7 +7,7 @@ pros::Vision visSensor(19, pros::vision_zero(1));
 //Motors
 pros::Motor cataRight(13, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor cataLeft(12, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor in(11, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor in(16, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor twoBar(20, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 //pros::Motor pocketKnife(2, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 
@@ -19,6 +19,7 @@ Controller controller;
 
 //Sensors
 pros::ADIDigitalIn cataLimit(cataLimitPort);
+pros::ADIAnalogIn barPot('a');
 
 
 //Drive Motors
@@ -28,12 +29,13 @@ MotorGroup right = MotorGroup({-3, -15});
 //DEFINE CHASSIS//
 ChassisControllerPID robotChassis = ChassisControllerFactory::create(
   left, right,
-  IterativePosPIDController::Gains{0.001, 0.0005, 0.00005},
+  IterativePosPIDController::Gains{0.003, 0, 0.00015}, //0.001, 0.0005, 0.00005      0.7...0.0003
   IterativePosPIDController::Gains{0, 0, 0},
-  IterativePosPIDController::Gains{0.0217, 0.0013, 0.000585}, //0.0025 , 0.0048, 0.00
+  IterativePosPIDController::Gains{0.005, 0.0003, 0.000075}, //0.005 , 0.003, 0.000075
   AbstractMotor::gearset::green,
   {4_in, 9.5_in}
 );
+
 /*
 ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
   left, right,
@@ -45,7 +47,7 @@ ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
 
 AsyncMotionProfileController profileController = AsyncControllerFactory::motionProfile(
   2.0,  // Maximum linear velocity of the Chassis in m/s
-  1.5,  // Maximum linear acceleration of the Chassis in m/s/s
+  4.0,  // Maximum linear acceleration of the Chassis in m/s/s
   4.0, // Maximum linear jerk of the Chassis in m/s/s/s
   robotChassis // Chassis Controller
 );

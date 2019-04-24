@@ -19,7 +19,8 @@ extern pros::Motor backLeft;
 extern MotorGroup left;
 extern MotorGroup right;
 
-extern pros::Motor cata;
+extern pros::Motor cataRight;
+extern pros::Motor cataLeft;
 extern pros::Motor in;
 extern pros::Motor pocketKnife;
 extern pros::Motor twoBar;
@@ -37,6 +38,7 @@ extern ChassisControllerPID robotChassis;
 extern AsyncMotionProfileController profileController;
 //SENSORS//
 extern pros::ADIDigitalIn cataLimit;
+extern pros::ADIAnalogIn barPot;
 
 
 //FUNCTIONS//

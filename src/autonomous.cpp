@@ -1,235 +1,310 @@
 #include "main.h"
-/*
 void redAuton()
 {
-  pocketKnife.move(-10);
-  in.move(-127);
-  twoBar.move(5);
+ in.move(127);
+  twoBar.move(15);
   left.tarePosition();
   right.tarePosition();
-  robotChassis.moveDistanceAsync(3_ft);
+  robotChassis.setMaxVelocity(150);
+  robotChassis.moveDistanceAsync(2.9_ft);
+  pros::delay(200);
+  in.move(0);
     while(!cataLimit.get_value())
    {
-     cata.move(127);
+    cataLeft.move(127);
+    cataRight.move(-127);
    }
-   cata.move(10);
+	 cataLeft.move(10);
+   cataRight.move(10);
    robotChassis.waitUntilSettled();
-   //pros::delay(200);
-   robotChassis.moveDistanceAsync(-3.4_ft);
-   pros::delay(400);
-   in.move(50);
-   pros::delay(100);
+   pros::delay(200);
+   robotChassis.moveDistanceAsync(-3.06_ft);
    in.move(-127);
+   pros::delay(500);
+   //in.move(50);
+   robotChassis.setMaxVelocity(200);
+   //in.move(-127);
    robotChassis.waitUntilSettled();
-   robotChassis.setMaxVelocity(100);
+	 pros::delay(400);
+   //robotChassis.setMaxVelocity(100);
+   left.tarePosition();
+	 right.tarePosition();
+	 robotChassis.setMaxVelocity(180);
    pros::delay(100);
    //in.move(0);
-   robotChassis.turnAngle(-113_deg);
+   robotChassis.turnAngle(-90_deg);
    robotChassis.waitUntilSettled();
-   pros::delay(150);
-   cata.move(127);
-   pros::delay(200);
-   robotChassis.setMaxVelocity(200);
-   profileController.generatePath({Point{0_ft, 0_ft, 0_deg}, Point{4_ft, 0.35_ft, 0_deg}}, "hitFlag");
-  profileController.setTarget("hitFlag");
-  /*
-   right.tarePosition();
-   left.tarePosition();
-   robotChassis.turnAngle(30_deg);
-   */
-   //pros::delay(300);
-   //robotChassis.setMaxVelocity(200);
-   //robotChassis.moveDistanceAsync(4_ft);
-
-
-   /*
-
-
-
-     while(!cataLimit.get_value())
-   {
-     cata.move(127);
-   }
-   cata.move(10);
-     profileController.waitUntilSettled();
-   //pros::delay(100);
-   //robotChassis.waitUntilSettled();
-   robotChassis.moveDistance(-2.1_ft);
-   robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(100_deg);
-   robotChassis.setMaxVelocity(200);
-    left.moveVoltage(-9000);
-   right.moveVoltage(-9000);
    pros::delay(300);
+   //robotChassis.setMaxVelocity(200);
+   robotChassis.setMaxVelocity(200);
+   robotChassis.moveDistance(0.45_ft);
+	 cataLeft.move(127);
+   cataRight.move(-127);
+	 pros::delay(400);
+	 cataLeft.move(0);
+   cataRight.move(0);
+	 //robotChassis.moveDistanceAsync(4.5_ft);
+   profileController.generatePath({Point{0_ft, 0_ft, 0_deg}, Point{4.7_ft, 0.3_ft, 0_deg}}, "hitFlag");
+   profileController.setTarget("hitFlag");
+	    while(!cataLimit.get_value())
+   {
+    cataLeft.move(127);
+    cataRight.move(-127);
+   }
+	 cataLeft.move(10);
+   cataRight.move(10);
+   profileController.waitUntilSettled();
+   robotChassis.moveDistance(-4.2_ft);
+   robotChassis.setMaxVelocity(200);
+   left.tarePosition();
+			right.tarePosition();
+	 robotChassis.turnAngle(50_deg);
+   robotChassis.setMaxVelocity(200);
+   in.move(127);
+   robotChassis.moveDistanceAsync(5.4_ft);
+   pros::delay(450);
+   cataLeft.move(127);
+   cataRight.move(-127);
+	 pros::delay(400);
+	 cataLeft.move(0);
+   cataRight.move(0);
+   robotChassis.waitUntilSettled();
+   /*
+   left.moveVoltage(11000);
+   right.moveVoltage(-11000);
+   pros::delay(200);
    left.moveVoltage(0);
    right.moveVoltage(0);
-   in.move(127);
-   robotChassis.moveDistance(2.3_ft);
-   robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(-55_deg);
-   in.move(-127);
-   pros::delay(200);
-   cata.move(127);
-   pros::delay(400);
-   cata.move(0);
-   pros::delay(200);
-   robotChassis.turnAngle(-20_deg);
-   pros::delay(50);
-   robotChassis.setMaxVelocity(200);
-   robotChassis.moveDistance(3_ft);
-   in.move(0);
+   */
 
 }
 void blueAuton()
 {
-  pocketKnife.move(-10);
-  in.move(-127);
-  twoBar.move(5);
+  in.move(127);
+  twoBar.move(15);
   left.tarePosition();
   right.tarePosition();
-  robotChassis.moveDistanceAsync(3_ft);
+  robotChassis.setMaxVelocity(150);
+  robotChassis.moveDistanceAsync(2.9_ft);
+  pros::delay(200);
+  in.move(0);
     while(!cataLimit.get_value())
    {
-     cata.move(127);
+    cataLeft.move(127);
+    cataRight.move(-127);
    }
-   cata.move(10);
+	 cataLeft.move(10);
+   cataRight.move(10);
    robotChassis.waitUntilSettled();
-   //pros::delay(200);
-   robotChassis.moveDistanceAsync(-3.4_ft);
-   pros::delay(400);
-   in.move(50);
-   pros::delay(100);
+   pros::delay(200);
+   robotChassis.moveDistanceAsync(-3.06_ft);
    in.move(-127);
+   pros::delay(500);
+   //in.move(50);
+   robotChassis.setMaxVelocity(200);
+   //in.move(-127);
    robotChassis.waitUntilSettled();
-   robotChassis.setMaxVelocity(100);
+	 pros::delay(400);
+   //robotChassis.setMaxVelocity(100);
+   left.tarePosition();
+	 right.tarePosition();
+	 robotChassis.setMaxVelocity(180);
    pros::delay(100);
    //in.move(0);
-   robotChassis.turnAngle(113_deg);
+   robotChassis.turnAngle(90_deg);
    robotChassis.waitUntilSettled();
-   pros::delay(150);
-   cata.move(127);
-   pros::delay(200);
-   robotChassis.setMaxVelocity(200);
-   profileController.generatePath({Point{0_ft, 0_ft, 0_deg}, Point{4_ft, -0.5_ft, 0_deg}}, "hitFlag");
-  profileController.setTarget("hitFlag");
-  /*
-   right.tarePosition();
-   left.tarePosition();
-   robotChassis.turnAngle(30_deg);
-   */
-   //pros::delay(300);
-   //robotChassis.setMaxVelocity(200);
-   //robotChassis.moveDistanceAsync(4_ft);
-
-
-/*
-
-
-
-
-     while(!cataLimit.get_value())
-   {
-     cata.move(127);
-   }
-   cata.move(10);
-     profileController.waitUntilSettled();
-   //pros::delay(100);
-   //robotChassis.waitUntilSettled();
-   robotChassis.moveDistance(-2.1_ft);
-   robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(-100_deg);
-   robotChassis.setMaxVelocity(200);
-    left.moveVoltage(-9000);
-   right.moveVoltage(-9000);
    pros::delay(300);
+   //robotChassis.setMaxVelocity(200);
+   robotChassis.setMaxVelocity(200);
+   robotChassis.moveDistance(0.45_ft);
+	 cataLeft.move(127);
+   cataRight.move(-127);
+	 pros::delay(400);
+	 cataLeft.move(0);
+   cataRight.move(0);
+	 //robotChassis.moveDistanceAsync(4.5_ft);
+   profileController.generatePath({Point{0_ft, 0_ft, 0_deg}, Point{4.7_ft, -0.3_ft, 0_deg}}, "hitFlag");
+   profileController.setTarget("hitFlag");
+	    while(!cataLimit.get_value())
+   {
+    cataLeft.move(127);
+    cataRight.move(-127);
+   }
+	 cataLeft.move(10);
+   cataRight.move(10);
+   profileController.waitUntilSettled();
+   robotChassis.moveDistance(-4.2_ft);
+   robotChassis.setMaxVelocity(200);
+   left.tarePosition();
+			right.tarePosition();
+	 robotChassis.turnAngle(-50_deg);
+   robotChassis.setMaxVelocity(200);
+   in.move(127);
+   robotChassis.moveDistanceAsync(5.4_ft);
+   pros::delay(450);
+   cataLeft.move(127);
+   cataRight.move(-127);
+	 pros::delay(400);
+	 cataLeft.move(0);
+   cataRight.move(0);
+   robotChassis.waitUntilSettled();
+   /*
+   left.moveVoltage(11000);
+   right.moveVoltage(-11000);
+   pros::delay(200);
    left.moveVoltage(0);
    right.moveVoltage(0);
-   in.move(127);
-   robotChassis.moveDistance(2.3_ft);
-   robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(55_deg);
-   in.move(-127);
-   pros::delay(200);
-   cata.move(127);
-   pros::delay(400);
-   cata.move(0);
-   pros::delay(200);
-   robotChassis.turnAngle(20_deg);
-   pros::delay(50);
-   robotChassis.setMaxVelocity(200);
-   robotChassis.moveDistance(3_ft);
-   in.move(0);
+   */
+
+  
+
 
   
 }
 
 void redBackAutonPark()
 {
-  pocketKnife.move(-10);
-  in.move(-127);
-  twoBar.move(5);
+  in.move(127);
+  twoBar.move(15);
+  left.tarePosition();
+  right.tarePosition();
+  robotChassis.setMaxVelocity(150);
+  robotChassis.moveDistanceAsync(2.9_ft);
+  pros::delay(200);
+  in.move(0);
+    while(!cataLimit.get_value())
+   {
+    cataLeft.move(127);
+    cataRight.move(-127);
+   }
+	 cataLeft.move(10);
+   cataRight.move(10);
+   robotChassis.waitUntilSettled();
+   pros::delay(200);
+   robotChassis.setMaxVelocity(150);
+   robotChassis.moveDistanceAsync(-2_ft);
+   in.move(-127);
+   pros::delay(200);
+   robotChassis.setMaxVelocity(180);
+   robotChassis.waitUntilSettled();
+   robotChassis.turnAngle(-135_deg);
+   robotChassis.moveDistance(-2.3_ft);
+   robotChassis.setMaxVelocity(200);
+   profileController.generatePath({Point{0_ft, 0_ft, 0_deg}, Point{1_ft, .75_ft, 35_deg}}, "alignSelf");
+  profileController.setTarget("alignSelf");
+  twoBar.move(-127);
+  pros::delay(500);
+  twoBar.move(-10);
+  profileController.waitUntilSettled();
   left.tarePosition();
   right.tarePosition();
   robotChassis.setMaxVelocity(200);
-  robotChassis.moveDistanceAsync(3_ft);
-    while(!cataLimit.get_value())
-   {
-     cata.move(127);
-   }
-   cata.move(10);
-   robotChassis.waitUntilSettled();
-   pros::delay(300);
-   robotChassis.moveDistance(-0.6_ft);
-   pros::delay(200);
-   robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(-100_deg);
-   pros::delay(200);
-   left.moveVoltage(11000);
-   right.moveVoltage(11000);
-   pros::delay(1250);
-   left.moveVoltage(-8000);
-   right.moveVoltage(-8000);
-   pros::delay(200);
+  robotChassis.turnAngle(-100_deg);
+  twoBar.move(-127);
+  left.moveVoltage(5000);
+  right.moveVoltage(5000);
+  pros::delay(500);
+  while(barPot.get_value() < 3000)
+  {
+    twoBar.move(-127);
+    pros::delay(10);
+  }
+  twoBar.move(0);
+  pros::delay(200);
+  left.moveVoltage(-11000);
+  right.moveVoltage(-11000);
+  pros::delay(500);
+  left.moveVoltage(-4000);
+  right.moveVoltage(-4000);
+   while(barPot.get_value() > 800)
+  {
+    twoBar.move(127);
+    pros::delay(10);
+  }
+  twoBar.move(-8);
    left.moveVoltage(0);
-   right.moveVoltage(0);
-
-
-
-
+  right.moveVoltage(0);
+  pros::delay(200);
+  left.moveVoltage(-11000);
+  right.moveVoltage(-11000);
+  pros::delay(2600);
+  left.moveVoltage(0);
+  right.moveVoltage(0);
 }
 
 void blueBackAutonPark()
 {
-   pocketKnife.move(-10);
-  in.move(-127);
- twoBar.move(5);
+  in.move(127);
+  twoBar.move(15);
+  left.tarePosition();
+  right.tarePosition();
+  robotChassis.setMaxVelocity(150);
+  robotChassis.moveDistanceAsync(2.9_ft);
+  pros::delay(200);
+  in.move(0);
+    while(!cataLimit.get_value())
+   {
+    cataLeft.move(127);
+    cataRight.move(-127);
+   }
+	 cataLeft.move(10);
+   cataRight.move(10);
+   robotChassis.waitUntilSettled();
+   pros::delay(200);
+   robotChassis.setMaxVelocity(150);
+   robotChassis.moveDistanceAsync(-2_ft);
+   in.move(-127);
+   pros::delay(200);
+   robotChassis.setMaxVelocity(180);
+   robotChassis.waitUntilSettled();
+   robotChassis.turnAngle(135_deg);
+   robotChassis.moveDistance(-2.3_ft);
+   robotChassis.setMaxVelocity(200);
+   profileController.generatePath({Point{0_ft, 0_ft, 0_deg}, Point{1_ft, -.75_ft, -35_deg}}, "alignSelf");
+  profileController.setTarget("alignSelf");
+  twoBar.move(-127);
+  pros::delay(500);
+  twoBar.move(-10);
+  profileController.waitUntilSettled();
   left.tarePosition();
   right.tarePosition();
   robotChassis.setMaxVelocity(200);
-  robotChassis.moveDistanceAsync(3_ft);
-    while(!cataLimit.get_value())
-   {
-     cata.move(127);
-   }
-   cata.move(10);
-   robotChassis.waitUntilSettled();
-   pros::delay(300);
-   robotChassis.moveDistance(-0.6_ft);
-   pros::delay(200);
-   robotChassis.setMaxVelocity(150);
-   robotChassis.turnAngle(100_deg);
-   pros::delay(200);
-   left.moveVoltage(11000);
-   right.moveVoltage(11000);
-   pros::delay(1250);
-   left.moveVoltage(-8000);
-   right.moveVoltage(-8000);
-   pros::delay(200);
+  robotChassis.turnAngle(100_deg);
+  twoBar.move(-127);
+  left.moveVoltage(5000);
+  right.moveVoltage(5000);
+  pros::delay(500);
+  while(barPot.get_value() < 3000)
+  {
+    twoBar.move(-127);
+    pros::delay(10);
+  }
+  twoBar.move(0);
+  pros::delay(200);
+  left.moveVoltage(-11000);
+  right.moveVoltage(-11000);
+  pros::delay(500);
+  left.moveVoltage(-4000);
+  right.moveVoltage(-4000);
+   while(barPot.get_value() > 800)
+  {
+    twoBar.move(127);
+    pros::delay(10);
+  }
+  twoBar.move(-8);
    left.moveVoltage(0);
-   right.moveVoltage(0);
+  right.moveVoltage(0);
+  pros::delay(200);
+  left.moveVoltage(-11000);
+  right.moveVoltage(-11000);
+  pros::delay(2600);
+  left.moveVoltage(0);
+  right.moveVoltage(0);
+  
+
 
 }
-
+/*
 void progSkills()
 {
   pocketKnife.move(-10);
@@ -259,7 +334,7 @@ void progSkills()
    robotChassis.setMaxVelocity(100);
    pros::delay(100);
    //in.move(0);
-   robotChassis.turnAngle(-93_deg);
+   robotChassis.turnAngle(-90_deg);
    robotChassis.waitUntilSettled();
    pros::delay(150);
    cata.move(127);
@@ -326,7 +401,7 @@ void redBackAutonNoPark()
 }
 
  
-
+*/
 
 void autonomous() 
 { 
@@ -341,32 +416,16 @@ void autonomous()
  * autonNumber = 6 is Red side back no park
  **/
 
-/*
    if (autonNumber == 0) //PROGRAMMING SKILLS
    {
-     progSkills();
-     //robotChassis.moveDistance(-4_ft);
-  //robotChassis.waitUntilSettled();
+    // progSkills();
    }
    else if (autonNumber == 1) //RED FRONT AUTON
    {
      redAuton();
-     /*
-      robotChassis.setMaxVelocity(150);
-      right.tarePosition();
-      left.tarePosition();
-       robotChassis.turnAngle(100_deg);
-    */
-
-
-
-   /* 
-
-  //robotChassis.waitUntilSettled();
    }
    else if (autonNumber == 2) //RED BACK AUTON + PARK
    {
-     //robotChassis.turnAngle(-100_deg);
       redBackAutonPark();
    }
    else if (autonNumber == 3) //BLUE FRONT AUTON
@@ -379,12 +438,11 @@ void autonomous()
    }
    else if (autonNumber == 5) //BLUE BACK AUTON NO PARK
    {
-      blueBackAutonNoPark();
+      //blueBackAutonNoPark();
    }
    else if (autonNumber == 6) //RED BACK AUTON NO PARK
    {
-     redBackAutonNoPark();
+     //redBackAutonNoPark();
    }
 
 }
-*/
