@@ -65,8 +65,8 @@ void opcontrol()
 */
         if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) twoBar.move(-127);
       else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) twoBar.move(127);
-		else if(barPot.get_value() < 80) twoBar.move(10);
-		else if(barPot.get_value() > 80) twoBar.move(-10);
+		else if(barPot.get_value() < 80) twoBar.move(12);
+		else if(barPot.get_value() > 100) twoBar.move(-10);
 		else twoBar.move(0);
     
 
@@ -81,9 +81,11 @@ printf("%d\n", barPot.get_value());
 
 		if(controller.getDigital(ControllerDigital::down))
 		{
+			robotChassis.setMaxVelocity(125);
 			left.tarePosition();
 			right.tarePosition();
-			robotChassis.turnAngle(90_deg);
+			robotChassis.turnAngle(225);
+			robotChassis.setMaxVelocity(200);
 			/*
 			profileController.generatePath({Point{0_ft, 0_ft, 0_deg}, Point{2_ft, 6_ft, 90_deg}}, "hitFlag");
       profileController.setTarget("hitFlag");
@@ -91,7 +93,7 @@ printf("%d\n", barPot.get_value());
 			*/
 		} 
 		
-
+/*
         if (controller.getDigital(ControllerDigital::left)) //auton test
 		{
   in.move(-127);
@@ -131,5 +133,6 @@ printf("%d\n", barPot.get_value());
 	 cataLeft.move(10);
    cataRight.move(10);
 	}
+	*/
 	}
 }

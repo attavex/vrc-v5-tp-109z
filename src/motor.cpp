@@ -7,7 +7,7 @@ pros::Vision visSensor(19, pros::vision_zero(1));
 //Motors
 pros::Motor cataRight(13, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor cataLeft(12, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor in(16, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor in(6, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor twoBar(20, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 //pros::Motor pocketKnife(2, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 
@@ -31,16 +31,16 @@ ChassisControllerPID robotChassis = ChassisControllerFactory::create(
   left, right,
   IterativePosPIDController::Gains{0.003, 0, 0.00015}, //0.001, 0.0005, 0.00005      0.7...0.0003
   IterativePosPIDController::Gains{0, 0, 0},
-  IterativePosPIDController::Gains{0.005, 0.0003, 0.000075}, //0.005 , 0.003, 0.000075
+  IterativePosPIDController::Gains{0.009, 0.000031, 0.00026}, //0.005 , 0.008, 0.000077
   AbstractMotor::gearset::green,
-  {4_in, 9.5_in}
+  {4_in, 9_in}
 );
 
 /*
 ChassisControllerIntegrated robotChassis = ChassisControllerFactory::create(
   left, right,
   AbstractMotor::gearset::green, // Speed gearset
-  {4_in, 13_in} // 4 inch wheels and a 9.5 inch wheelbase
+  {4_in, 9_in} // 4 inch wheels and a 9.5 inch wheelbase
 );
 */
 //static SettledUtil create(double iatTargetError = 50, double iatTargetDerivative = 5, QTime iatTargetTime = 250_ms);
@@ -107,6 +107,11 @@ void cataActivity(void *x)
         {
             cataLeft.move(-127);
             cataRight.move(127);
+        }
+        else if (controller.getDigital(ControllerDigital::left))
+        {
+            cataLeft.move(0);
+            cataRight.move(0);
         }
         else
         {
